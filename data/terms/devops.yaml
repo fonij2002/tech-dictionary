@@ -1,0 +1,443 @@
+# Complete replacement for data/terms/devops.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: backup
+  term: Backup
+  aliases:
+    - restore
+    - recovery
+  category: devops
+  level: beginner
+  tags:
+    - devops
+  definition: >-
+    A separate copy of data kept so it can be recovered after loss or damage.
+  analogy: >-
+    A spare parachute, whose usefulness depends on whether it actually opens.
+  example: >-
+    A team restores a database from a recent backup during a recovery test.
+  caveat: >-
+    A backup strategy needs tested restoration and appropriate retention.
+  related:
+    - database
+    - migration
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: cdn
+  term: CDN
+  aliases:
+    - Content Delivery Network
+  category: devops
+  level: beginner
+  tags:
+    - devops
+  definition: >-
+    A distributed network of servers that delivers content from locations closer to users,
+    often with caching.
+  analogy: >-
+    Neighborhood snack depots, so everyone need not travel to the one enormous warehouse.
+  example: >-
+    A CDN caches dictionary images and stylesheets at edge locations near visitors.
+  caveat: >-
+    A CDN does not automatically cache every response or fix a slow origin. Cache rules,
+    freshness, and invalidation matter.
+  related:
+    - cache
+    - asset
+    - latency
+  sources:
+    - title: CDN — reference and documentation
+      url: https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
+- id: cloud-computing
+  term: Cloud computing
+  aliases:
+    - cloud
+  category: devops
+  level: beginner
+  tags:
+    - devops
+  definition: >-
+    Using computing resources provided over a network, often on demand.
+  analogy: >-
+    Renting a kitchen when you need it instead of owning every oven.
+  example: >-
+    A team rents virtual servers to run an application.
+  caveat: >-
+    The cloud still runs on physical computers someone manages.
+  related:
+    - server
+    - serverless
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: container
+  term: Container
+  aliases:
+    - containerization
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    An isolated execution environment that packages an application with needed user-space
+    dependencies.
+  analogy: >-
+    Your app's packed lunch: familiar ingredients, wherever lunch happens.
+  example: >-
+    A Docker container can run an app with its required libraries.
+  caveat: >-
+    Containers commonly share the host kernel; they are not full virtual machines.
+  related:
+    - docker
+    - virtual-machine
+  sources:
+    - title: "Docker: containers"
+      url: https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/
+- id: image
+  term: Container image
+  aliases:
+    - Docker image
+    - OCI image
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A packaged filesystem and metadata used as a template for containers.
+  analogy: >-
+    The sealed recipe kit; a running container is the meal being cooked.
+  example: >-
+    A team builds an image and runs several containers from it.
+  caveat: >-
+    Changing a running container does not automatically change its source image.
+  related:
+    - container
+    - docker
+  sources:
+    - title: "Docker: images"
+      url: https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/
+- id: cd
+  term: Continuous delivery
+  aliases:
+    - CD
+    - continuous deployment
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    Keeping software ready to release through an automated, repeatable pipeline.
+  analogy: >-
+    A delivery conveyor belt with a human release button when needed.
+  example: >-
+    A pipeline builds a tested artifact ready for production deployment.
+  caveat: >-
+    Continuous deployment goes further by automatically releasing qualifying changes.
+  related:
+    - ci
+    - deployment
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: ci
+  term: Continuous integration
+  aliases:
+    - CI
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    Frequently integrating code changes and checking them with automated builds or tests.
+  analogy: >-
+    Checking every new ingredient before the shared soup becomes a surprise.
+  example: >-
+    A pull request triggers automated tests and a build.
+  caveat: >-
+    CI helps detect problems; it does not prove there are none.
+  related:
+    - cd
+    - unit-test
+  sources:
+    - title: "GitHub: continuous integration"
+      url: https://docs.github.com/en/actions/get-started/continuous-integration
+- id: cron-job
+  term: Cron job
+  aliases:
+    - cron
+    - crontab
+    - scheduled job
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A task scheduled to run automatically at specified times using cron or a
+    cron-compatible scheduler.
+  analogy: >-
+    A very punctual robot intern who still needs instructions about what to do when
+    Tuesday goes wrong.
+  example: >-
+    0 9 * * 1 runs a command at 09:00 every Monday in the scheduler's configured time zone.
+  caveat: >-
+    The classic format has five time fields; other schedulers differ. Handle environment
+    settings, logs, failures, time zones, and overlapping runs.
+  related:
+    - shell
+    - server
+    - pipeline
+  sources:
+    - title: Cron job — reference and documentation
+      url: https://man7.org/linux/man-pages/man5/crontab.5.html
+- id: deployment
+  term: Deployment
+  aliases:
+    - deploy
+    - release rollout
+  category: devops
+  level: beginner
+  tags:
+    - devops
+  definition: >-
+    Making a version of software available in its target environment.
+  analogy: >-
+    Opening the restaurant doors after the kitchen is ready.
+  example: >-
+    A team deploys a new website build to hosting.
+  caveat: >-
+    A deployment and a user-visible feature release can happen separately.
+  related:
+    - cd
+    - github-pages
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: docker
+  term: Docker
+  aliases: []
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A platform and set of tools for building and running container images.
+  analogy: >-
+    The packing station and delivery trolley for your app's lunchbox.
+  example: >-
+    A Dockerfile describes steps for building an application image.
+  caveat: >-
+    Docker is one implementation in a wider container ecosystem.
+  related:
+    - container
+    - image
+  sources:
+    - title: Docker overview
+      url: https://docs.docker.com/get-started/docker-overview/
+- id: failover
+  term: Failover
+  aliases:
+    - automatic failover
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    Switching work or traffic from a failed or unhealthy component to a healthy
+    alternative, automatically or manually.
+  analogy: >-
+    The backup singer taking the microphone when the lead singer loses their voice.
+  example: >-
+    A health check detects a failed server, and the load balancer directs requests to
+    healthy instances.
+  caveat: >-
+    Failover needs an available alternative and a tested recovery plan. Detection delays,
+    insufficient capacity, or replication lag can still cause disruption.
+  related:
+    - redundancy
+    - load-balancer
+    - database
+  sources:
+    - title: Failover — reference and documentation
+      url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.Failover.html
+- id: load-balancer
+  term: Load balancer
+  aliases:
+    - load balancing
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A component that distributes incoming traffic across available backends.
+  analogy: >-
+    The host seating diners across tables so one waiter does not melt.
+  example: >-
+    Requests can be spread across several application servers.
+  caveat: >-
+    Distribution policies and health checks affect actual behavior.
+  related:
+    - server
+    - scalability
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: observability
+  term: Observability
+  aliases:
+    - monitoring
+    - logs metrics traces
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    The ability to understand a system's internal behavior from the signals it produces.
+  analogy: >-
+    Windows, thermometers, and breadcrumbs for a machine you cannot watch directly.
+  example: >-
+    Logs, metrics, and traces help investigate a slow checkout.
+  caveat: >-
+    Collecting lots of telemetry is not enough; it must support useful questions.
+  related:
+    - latency
+    - debugging
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: redundancy
+  term: Redundancy
+  aliases:
+    - redundant infrastructure
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    Having extra instances or alternative resources so one component's failure does not
+    have to stop the system.
+  analogy: >-
+    Keeping a spare microphone because the main one also suffers from stage fright.
+  example: >-
+    Two app instances run in separate failure zones, with enough spare capacity to survive
+    losing one.
+  caveat: >-
+    Redundancy supplies alternatives; failover uses them. A backup file alone is not a
+    live redundant service, and shared dependencies can still fail.
+  related:
+    - failover
+    - backup
+    - load-balancer
+  sources:
+    - title: Redundancy — reference and documentation
+      url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/redundancy
+- id: scalability
+  term: Scalability
+  aliases:
+    - scale up
+    - scale out
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A system's ability to handle more work by changing or adding resources.
+  analogy: >-
+    Inviting more guests without turning dinner into a fire drill.
+  example: >-
+    Adding replicas can help an application serve more requests.
+  caveat: >-
+    A bottleneck in one component can limit the whole system.
+  related:
+    - load-balancer
+    - database
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: server
+  term: Server
+  aliases:
+    - web server
+  category: devops
+  level: beginner
+  tags:
+    - devops
+  definition: >-
+    A program, or the machine running it, that provides resources or services to clients.
+  analogy: >-
+    The restaurant kitchen answering orders while clients argue about the menu.
+  example: >-
+    A Node.js HTTP server receives GET /terms and returns a JSON response.
+  caveat: >-
+    Server describes a role, not necessarily a powerful physical box. One machine or
+    program can act as both client and server.
+  related:
+    - client
+    - http
+    - backend
+  sources:
+    - title: "MDN: Server"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server
+- id: serverless
+  term: Serverless
+  aliases: []
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A model where a provider manages server provisioning and execution infrastructure.
+  analogy: >-
+    The restaurant provides the kitchen; you bring the recipe and pay under its rules.
+  example: >-
+    A function runs when an upload event occurs.
+  caveat: >-
+    There are still servers, and billing and scaling behavior vary.
+  related:
+    - cloud-computing
+    - server
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/
+- id: virtual-machine
+  term: Virtual machine
+  aliases:
+    - VM
+    - virtualization
+  category: devops
+  level: intermediate
+  tags:
+    - devops
+  definition: >-
+    A software-defined computer that runs its own operating system using virtualized
+    hardware.
+  analogy: >-
+    A computer apartment inside a larger computer building.
+  example: >-
+    A VM can run a separate Linux operating system on a host.
+  caveat: >-
+    VMs generally have more overhead than shared-kernel containers.
+  related:
+    - container
+    - operating-system
+  sources:
+    - title: Docker documentation
+      url: https://docs.docker.com/get-started/
+    - title: AWS cloud concepts
+      url: https://aws.amazon.com/what-is/cloud-computing/

@@ -1,0 +1,26 @@
+---
+import type { DictionaryTerm } from '../../data/types';
+import { withBase } from '../lib/urls';
+import Icon from './Icon.astro';
+interface Props {
+  term: DictionaryTerm;
+}
+const { term } = Astro.props;
+---
+
+<section class="daily-word" aria-labelledby="daily-heading">
+  <p id="daily-heading" class="eyebrow d-flex align-items-center gap-2">
+    <Icon name="spark" size={16} />
+    Word of the day
+  </p>
+  <a
+    id="word-of-day"
+    href={withBase(`terms/${term.id}/`)}
+    data-term={term.id}
+    class="d-flex align-items-center justify-content-between gap-2"
+  >
+    <span id="daily-term">{term.term}</span>
+    <Icon name="arrow" size={18} />
+  </a>
+  <p class="small mb-0 mt-2 text-secondary">One little aha for today.</p>
+</section>

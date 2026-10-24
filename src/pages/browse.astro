@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getDictionary } from '../lib/dictionary';
+import { withBase } from '../lib/urls';
+const { terms } = await getDictionary();
+---
+
+<BaseLayout title="Browse every term · Tech Dictionary">
+  <main id="main" class="wrap prose flex-grow-1">
+    <p class="eyebrow">The complete dictionary</p>
+    <h1>Every word, one small explanation.</h1>
+    <p>
+      <a href={withBase()}>Open the dictionary</a> to search and filter, or choose a term below.
+    </p>
+    <ul class="list-group list-group-flush">
+      {terms.map((term) => (
+        <li class="list-group-item bg-transparent px-0">
+          <a href={withBase(`terms/${term.id}/`)}>{term.term}</a>
+          {term.aliases.length > 0 && (
+            <span class="small text-secondary ms-2">{term.aliases.join(' · ')}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </main>
+</BaseLayout>

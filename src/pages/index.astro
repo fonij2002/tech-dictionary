@@ -1,0 +1,223 @@
+---
+import Icon from '../components/Icon.astro';
+import TermCard from '../components/TermCard.astro';
+import TermModal from '../components/TermModal.astro';
+import WordOfTheDay from '../components/WordOfTheDay.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { wordOfTheDay } from '../lib/daily';
+import { getDictionary } from '../lib/dictionary';
+import { site } from '../lib/site';
+import { withBase } from '../lib/urls';
+const { terms, categories } = await getDictionary();
+const catById = new Map(categories.map((category) => [category.id, category]));
+const counts = new Map(
+  categories.map((category) => [
+    category.id,
+    terms.filter((term) => term.category === category.id).length,
+  ]),
+);
+---
+
+<BaseLayout>
+  <main
+    id="main"
+    class="wrap flex-grow-1"
+    data-dictionary
+    data-base={withBase()}
+    data-repository={site.repository}
+    data-branch={site.defaultBranch}
+  >
+    <section
+      class="hero d-flex align-items-center justify-content-between gap-4"
+      aria-labelledby="page-title"
+    >
+      <div>
+        <p class="eyebrow">An open dictionary for curious minds</p>
+        <h1 id="page-title">
+          Tech Buzzwords, in <em>human.</em>
+        </h1>
+      </div>
+      <div class="hero-note">
+        <strong>{terms.length}</strong>entries.
+      </div>
+    </section>
+    <form id="search-form" role="search">
+      <label class="visually-hidden" for="search">
+        Search terms, abbreviations, and definitions
+      </label>
+      <div class="search-panel d-flex align-items-center gap-3">
+        <Icon name="search" size={23} />
+        <input
+          class="search-input"
+          id="search"
+          name="q"
+          type="search"
+          placeholder="What word has you scratching your head?"
+          autocomplete="off"
+          spellcheck="false"
+          maxlength="200"
+          data-enhance
+          disabled
+        />
+        <button class="btn btn-sm" id="clear-search" type="button" aria-label="Clear search" hidden>
+          <Icon name="close" />
+        </button>
+        <kbd class="search-key" aria-hidden="true">
+          /
+        </kbd>
+      </div>
+    </form>
+    <div class="alert alert-light border small" id="load-status" role="status">
+      Loading search and filters…{' '}
+      <span class="d-inline">Every term below is already readable.</span>
+      <button id="retry-load" class="btn btn-outline-primary btn-sm ms-2" type="button" hidden>
+        Retry
+      </button>
+    </div>
+    <div class="dictionary-workspace">
+      <aside class="topic-sidebar" aria-label="Browse topics">
+        <h2 class="eyebrow sidebar-title">Find your corner</h2>
+        <div class="category-list" role="group" aria-label="Filter by topic">
+          <button
+            type="button"
+            class="category-button"
+            data-category="all"
+            data-enhance
+            disabled
+            aria-pressed="true"
+          >
+            <span>All topics</span>
+            <span>{terms.length}</span>
+          </button>
+          {categories.map((category) => (
+            <button
+              type="button"
+              class="category-button"
+              data-category={category.id}
+              data-enhance
+              disabled
+              aria-pressed="false"
+            >
+              <span>{category.name}</span>
+              <span>{counts.get(category.id)}</span>
+            </button>
+          ))}
+        </div>
+        <WordOfTheDay term={wordOfTheDay(terms)!} />
+        <div class="sidebar-callout">
+          <strong>Help us grow this dictionary together.</strong>
+          <p>
+            <a href={withBase('contribute/')}>Know a word we're missing?</a>
+          </p>
+        </div>
+      </aside>
+      <section aria-labelledby="results-title" class="results-section">
+        <div class="results-heading d-flex align-items-center justify-content-between gap-3 flex-wrap">
+          <h2 id="results-title">
+            <span id="results-label">All terms</span>{' '}
+            <span class="result-count" id="result-count">
+              {terms.length}
+            </span>
+          </h2>
+          <div class="d-flex flex-wrap gap-2 filters">
+            <label>
+              <span class="visually-hidden">Filter by learning level</span>
+              <select id="level" class="form-select form-select-sm" data-enhance disabled>
+                <option value="all">Any level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </label>
+            <label>
+              <span class="visually-hidden">Sort terms</span>
+              <select id="sort" class="form-select form-select-sm" data-enhance disabled>
+                <option value="az">A to Z</option>
+                <option value="za">Z to A</option>
+                <option value="level">Learning level</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div
+          class="alphabet d-flex flex-wrap gap-1"
+          role="group"
+          aria-label="Filter by first letter"
+        >
+          <button
+            type="button"
+            class="letter-button"
+            data-letter="all"
+            data-enhance
+            disabled
+            aria-pressed="true"
+          >
+            All
+          </button>
+          {[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter) => (
+            <button
+              class="letter-button"
+              type="button"
+              data-letter={letter}
+              data-enhance
+              disabled
+              aria-pressed="false"
+            >
+              {letter}
+            </button>
+          ))}
+        </div>
+        <div
+          id="active-filters"
+          class="d-flex flex-wrap align-items-center gap-2 mb-3"
+          hidden
+        ></div>
+        <p
+          class="visually-hidden"
+          id="search-announcement"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
+        <div id="term-grid" class="term-grid">
+          {terms.map((term, i) => (
+            <TermCard term={term} category={catById.get(term.category)!} number={i + 1} />
+          ))}
+        </div>
+        <div id="empty-state" class="empty-state" hidden>
+          <h3>No words here. Yet.</h3>
+          <p id="empty-message"></p>
+          <div
+            id="suggestions"
+            class="related-links d-flex flex-wrap justify-content-center gap-2 mb-3"
+          ></div>
+          <button class="btn btn-outline-primary" id="reset-filters" type="button">
+            Clear search & filters
+          </button>
+          <p class="mb-0 mt-3">
+            Something missing? <a href={withBase('contribute/')}>Suggest a term.</a>
+          </p>
+        </div>
+      </section>
+    </div>
+    <noscript>
+      <p class="alert alert-light border">
+        Search and filters need JavaScript. Every term above links to a complete, readable
+        definition.
+      </p>
+      <style>
+        #load-status {
+          display: none;
+        }
+      </style>
+    </noscript>
+    <TermModal />
+    <template id="filter-template">
+      <button type="button" class="filter-chip">
+        <span data-label></span>
+        <span aria-hidden="true">×</span>
+      </button>
+    </template>
+  </main>
+  <script src="../scripts/dictionary.ts"></script>
+</BaseLayout>

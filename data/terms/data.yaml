@@ -1,0 +1,445 @@
+# Complete replacement for data/terms/data.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: acid
+  term: ACID
+  aliases:
+    - atomicity consistency isolation durability
+  category: data
+  level: advanced
+  tags:
+    - data
+  definition: >-
+    Four transaction properties: atomicity, consistency, isolation, and durability.
+  analogy: >-
+    The database's promise to avoid half-finished, chaotic bookkeeping.
+  example: >-
+    A committed bank transfer should not vanish after a restart.
+  caveat: >-
+    ACID consistency concerns data rules; it is not the same as distributed replica
+    consistency.
+  related:
+    - transaction
+    - database
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: crud
+  term: CRUD
+  aliases:
+    - Create Read Update Delete
+  category: data
+  level: beginner
+  tags:
+    - data
+  definition: >-
+    The four basic operations for managing stored data: create, read, update, and delete.
+  analogy: >-
+    A filing cabinet's greatest hits: add it, find it, fix it, and finally admit you no
+    longer need it.
+  example: >-
+    A dictionary admin can create a term, read its definition, update its examples, or
+    delete a duplicate.
+  caveat: >-
+    CRUD describes data operations, not a mandatory HTTP mapping or a substitute for
+    business rules and authorization.
+  related:
+    - database
+    - api
+    - get-request
+    - post-request
+  sources:
+    - title: "MDN: CRUD"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/CRUD
+- id: database
+  term: Database
+  aliases:
+    - DB
+  category: data
+  level: beginner
+  tags:
+    - data
+  definition: >-
+    An organized collection of data managed so applications can store, retrieve, and
+    update information.
+  analogy: >-
+    A filing system that can answer questions without asking you to search every drawer
+    yourself.
+  example: >-
+    A dictionary database stores terms and lets an API find entries matching a query.
+  caveat: >-
+    A database is not necessarily SQL, relational, or one physical server. Its guarantees
+    and query capabilities depend on the system.
+  related:
+    - query
+    - crud
+    - sql
+    - nosql
+  sources:
+    - title: Database — reference and documentation
+      url: https://www.postgresql.org/docs/current/tutorial-concepts.html
+- id: index
+  term: Database index
+  aliases:
+    - index
+    - indexing
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    An additional structure that helps a database locate certain data efficiently.
+  analogy: >-
+    A book index that saves you from reading every page to find 'pizza'.
+  example: >-
+    An index on email can speed up finding an account by email.
+  caveat: >-
+    Indexes use space and can make writes more expensive.
+  related:
+    - query
+    - big-o
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: etl
+  term: ETL
+  aliases:
+    - extract transform load
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A process that extracts data, transforms it, and loads it into a destination.
+  analogy: >-
+    Collect the groceries, chop them, then put the salad in the serving bowl.
+  example: >-
+    An ETL job cleans sales records before loading a warehouse.
+  caveat: >-
+    In ELT, loading happens before transformation.
+  related:
+    - database
+    - query
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: foreign-key
+  term: Foreign key
+  aliases:
+    - FK
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A constraint that links values in one table to valid referenced values in another.
+  analogy: >-
+    The address on an invitation that must point to a real guest.
+  example: >-
+    An order's customer_id can reference the customers table.
+  caveat: >-
+    Deletion behavior depends on how the constraint is configured.
+  related:
+    - primary-key
+    - schema
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: migration
+  term: Migration
+  aliases:
+    - database migration
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A versioned change to a database's structure or data.
+  analogy: >-
+    Renovating your data's house with written instructions and hopefully a backup.
+  example: >-
+    A migration can add an optional phone_number column.
+  caveat: >-
+    Large or destructive migrations need a rollout and recovery plan.
+  related:
+    - schema
+    - backup
+  sources:
+    - title: Django migrations
+      url: https://docs.djangoproject.com/en/stable/topics/migrations/
+- id: nosql
+  term: NoSQL
+  aliases:
+    - non-relational database
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A broad label for databases that use models other than conventional relational tables.
+  analogy: >-
+    A data toolbox with document folders, key drawers, and graph-shaped shelves.
+  example: >-
+    A document database can store records as flexible documents.
+  caveat: >-
+    NoSQL does not mean 'no structure' or 'no transactions'.
+  related:
+    - database
+    - schema
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: orm
+  term: ORM
+  aliases:
+    - object-relational mapping
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A technique that maps application objects to relational database data.
+  analogy: >-
+    A translator between your code's objects and your database's tables.
+  example: >-
+    Django's ORM can query rows using Python objects and methods.
+  caveat: >-
+    An ORM does not remove the need to understand database behavior.
+  related:
+    - sql
+    - backend
+  sources:
+    - title: Django database models
+      url: https://docs.djangoproject.com/en/stable/topics/db/models/
+- id: primary-key
+  term: Primary key
+  aliases:
+    - PK
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A field or set of fields that uniquely identifies each row in a table.
+  analogy: >-
+    A database row's official name badge, with no duplicates allowed.
+  example: >-
+    A user_id can be the primary key of a users table.
+  caveat: >-
+    A primary key can consist of more than one column.
+  related:
+    - foreign-key
+    - database
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: query
+  term: Query
+  aliases:
+    - database query
+  category: data
+  level: beginner
+  tags:
+    - data
+  definition: >-
+    A request to retrieve or manipulate data.
+  analogy: >-
+    A question for your database, preferably more precise than 'where's my stuff?'.
+  example: >-
+    A query can find all orders placed this week.
+  caveat: >-
+    Queries can change data as well as read it.
+  related:
+    - sql
+    - index
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: retrieve
+  term: Retrieve
+  aliases:
+    - retrieval
+    - data retrieval
+  category: data
+  level: beginner
+  tags:
+    - data
+  definition: >-
+    Read or obtain stored information from a source such as a database, cache, file, or
+    API.
+  analogy: >-
+    Find the labeled box in storage without pretending you just manufactured its contents.
+  example: >-
+    A search endpoint retrieves matching term records from a database and returns them to
+    the client.
+  caveat: >-
+    Retrieving data does not necessarily modify it or require a network request. Search
+    quality and authorization still matter.
+  related:
+    - crud
+    - query
+    - rag
+  sources:
+    - title: Retrieve — reference and documentation
+      url: https://www.postgresql.org/docs/current/tutorial-select.html
+- id: schema
+  term: Schema
+  aliases:
+    - database schema
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A description of how data is organized, including fields, types, and constraints.
+  analogy: >-
+    The floor plan for your data, so every room has a purpose.
+  example: >-
+    An orders table might require an ID, customer ID, and total.
+  caveat: >-
+    The word schema also applies to formats such as JSON.
+  related:
+    - database
+    - migration
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: serialization
+  term: Serialization
+  aliases:
+    - serialize
+    - deserialization
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    Converting data into a format suitable for storage or transmission.
+  analogy: >-
+    Packing an object into a suitcase, then unpacking it on the other side.
+  example: >-
+    An application can serialize a list as JSON text.
+  caveat: >-
+    Not every format preserves every original data type.
+  related:
+    - json
+    - encoding
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: sql
+  term: SQL
+  aliases:
+    - structured query language
+  category: data
+  level: beginner
+  tags:
+    - data
+  definition: >-
+    A language used to define, query, and change data in relational databases.
+  analogy: >-
+    Politely asking tables questions, with unusually strict punctuation.
+  example: >-
+    SELECT name FROM users asks for the names in a users table.
+  caveat: >-
+    SQL dialects and supported features vary by database.
+  related:
+    - database
+    - query
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: stringify
+  term: Stringify
+  aliases:
+    - JSON.stringify
+    - stringification
+  category: data
+  level: beginner
+  tags:
+    - data
+  definition: >-
+    Convert a value into a string representation; JSON.stringify specifically produces
+    JSON text for supported values.
+  analogy: >-
+    Packing data into a text-shaped suitcase, with a few items refused at check-in.
+  example: >-
+    JSON.stringify({ name: 'Ada', count: 2 }) returns the text {"name":"Ada","count":2}.
+  caveat: >-
+    JSON.stringify can omit unsupported properties, turn some values into null, or throw
+    for cycles and unhandled BigInt. It is not a universal deep clone.
+  related:
+    - json
+    - serialization
+    - string
+  sources:
+    - title: "MDN: Stringify"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+- id: transaction
+  term: Transaction
+  aliases:
+    - database transaction
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A group of database operations treated as a single unit of work.
+  analogy: >-
+    A 'do the whole thing or put it back' agreement for your data.
+  example: >-
+    A transfer can debit one account and credit another in a transaction.
+  caveat: >-
+    Isolation and durability guarantees depend on the system and settings.
+  related:
+    - acid
+    - database
+  sources:
+    - title: PostgreSQL documentation
+      url: https://www.postgresql.org/docs/current/
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: vector-database
+  term: Vector database
+  aliases:
+    - vector store
+    - similarity search
+  category: data
+  level: intermediate
+  tags:
+    - data
+  definition: >-
+    A system designed to store vectors and find items with similar vector representations.
+  analogy: >-
+    A librarian finding books by their 'vibe coordinates', with actual math behind the
+    vibe.
+  example: >-
+    A search tool can retrieve text whose embeddings are close to a query embedding.
+  caveat: >-
+    Similarity depends on the representation and is not proof of truth.
+  related:
+    - embedding
+    - rag
+  sources:
+    - title: pgvector documentation
+      url: https://github.com/pgvector/pgvector

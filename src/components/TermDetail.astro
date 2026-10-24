@@ -1,0 +1,82 @@
+---
+import type { DictionaryTerm, DictionaryCategory } from '../../data/types';
+import { withBase } from '../lib/urls';
+import { editURL } from '../lib/site';
+interface Props {
+  term: DictionaryTerm;
+  category: DictionaryCategory;
+  related: DictionaryTerm[];
+  isPage?: boolean;
+}
+const { term, category, related, isPage = false } = Astro.props;
+const Heading = isPage ? 'h1' : 'h2';
+const SectionHeading = isPage ? 'h2' : 'h3';
+---
+
+<article class="detail-content">
+  <div class="detail-meta d-flex flex-wrap align-items-center gap-3">
+    <span class:list={['category-tag', `color-${category.color}`]} data-field="category">
+      {category.shortName}
+    </span>
+    <span class="small text-secondary" data-field="level">
+      {term.level[0].toUpperCase() + term.level.slice(1)}
+    </span>
+  </div>
+  <Heading class="detail-title" id="detail-title" data-field="term">
+    {term.term}
+  </Heading>
+  <p class="detail-aliases" data-section="aliases" hidden={!term.aliases.length}>
+    Also known as <span data-field="aliases">{term.aliases.join(' · ')}</span>
+  </p>
+  <p class="detail-definition" data-field="definition">
+    {term.definition}
+  </p>
+  <aside class="analogy">
+    <p class="eyebrow mb-2">Think of it this way</p>
+    <p class="mb-0" data-field="analogy">
+      {term.analogy}
+    </p>
+  </aside>
+  <section class="detail-section">
+    <SectionHeading>In the real world</SectionHeading>
+    <p data-field="example">{term.example}</p>
+  </section>
+  <aside class="caveat" data-section="caveat" hidden={!term.caveat}>
+    <strong>One thing to remember</strong>
+    <p class="mb-0" data-field="caveat">
+      {term.caveat}
+    </p>
+  </aside>
+  <section class="detail-section" data-section="related" hidden={!related.length}>
+    <SectionHeading>Connect the dots</SectionHeading>
+    <div class="related-links d-flex flex-wrap gap-2" data-field="related">
+      {related.map((item) => (
+        <a href={withBase(`terms/${item.id}/`)} data-term={item.id}>
+          {item.term}
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="detail-section">
+    <SectionHeading>Go a little deeper</SectionHeading>
+    <ul class="sources" data-field="sources">
+      {term.sources.map((source) => (
+        <li>
+          <a href={source.url} target="_blank" rel="noopener noreferrer">
+            {source.title}
+            <span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <div class="detail-actions d-flex align-items-center flex-wrap gap-3">
+    <button class="btn btn-outline-primary btn-sm" type="button" data-copy-term={term.id} hidden>
+      Copy link
+    </button>
+    <a href={editURL(term.category)} data-field="edit">
+      Improve this entry
+    </a>
+    <span class="copy-status small text-secondary" role="status" aria-live="polite"></span>
+  </div>
+</article>

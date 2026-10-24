@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../lib/site';
+const commands = `npm ci
+npm run new-term -- --id your-term --term "Your term" --category programming
+# Fill in the draft in data/terms/programming.yaml
+npm run check
+npm run dev`;
+---
+
+<BaseLayout title="Contribute · Tech Dictionary">
+  <main id="main" class="wrap prose flex-grow-1">
+    <p class="eyebrow">A little knowledge goes a long way</p>
+    <h1>Help the next person get it.</h1>
+    <p>
+      Tech Dictionary grows one clear explanation at a time. Add a missing word, fix a confusing
+      example, or improve an existing entry.
+    </p>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <a class="btn btn-primary" href={site.repository}>
+        Open the GitHub project
+      </a>
+      <a class="btn btn-outline-primary" href={`${site.repository}/issues/new/choose`}>
+        Suggest a term
+      </a>
+    </div>
+    <h2>A good entry has five ingredients</h2>
+    <ol>
+      <li>A short definition that works without the joke.</li>
+      <li>An original everyday analogy that helps without pretending to be exact.</li>
+      <li>A concrete example.</li>
+      <li>A caveat that catches a common misunderstanding.</li>
+      <li>A reliable reference and links to related terms.</li>
+    </ol>
+    <h2>Make a contribution</h2>
+    <p>
+      Fork the repository, create a branch, and edit the matching YAML file in{' '}
+      <code>data/terms/</code>. Use Node.js 24 LTS to run the project.
+    </p>
+    <pre><code>{commands}</code></pre>
+    <p>
+      The draft command preserves existing comments. Complete its required fields, then open a pull
+      request. Keep the humor kind and the definition accurate.
+    </p>
+    <h2>Writing guidelines</h2>
+    <p>
+      Use plain text for all content fields. Include useful aliases and related IDs. Write your own
+      explanations; reference links are further reading and do not grant permission to copy their
+      wording.
+    </p>
+    <h2>Run and publish your own copy</h2>
+    <p>
+      Run <code>npm run dev</code> for local development and <code>npm run build</code> to generate{' '}
+      <code>dist/</code>. The repository includes an Actions workflow for GitHub Pages. Configure
+      its Pages source as <strong>GitHub Actions</strong>.
+    </p>
+    <h2>Licensing</h2>
+    <p>
+      Code contributions use MIT. Original dictionary definitions, examples, and analogies use CC BY
+      4.0. Be respectful and constructive; beginners belong here.
+    </p>
+  </main>
+</BaseLayout>

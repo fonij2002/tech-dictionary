@@ -1,0 +1,58 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermDetail from '../../components/TermDetail.astro';
+import { getDictionary } from '../../lib/dictionary';
+import { site } from '../../lib/site';
+import { withBase } from '../../lib/urls';
+
+export const getStaticPaths = (async () => {
+  const { terms, categories } = await getDictionary();
+  const byId = new Map(terms.map((term) => [term.id, term]));
+  const catById = new Map(categories.map((category) => [category.id, category]));
+  return terms.map((term) => ({
+    params: { id: term.id },
+    props: {
+      term,
+      category: catById.get(term.category)!,
+      related: term.related.map((id) => byId.get(id)!),
+    },
+  }));
+}) satisfies GetStaticPaths;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { term, category, related } = Astro.props;
+const structured = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: term.term,
+  description: term.definition,
+  termCode: term.id,
+  alternateName: term.aliases,
+  url: new URL(withBase(`terms/${term.id}/`), Astro.site).href,
+  inDefinedTermSet: {
+    '@type': 'DefinedTermSet',
+    name: site.name,
+    url: new URL(withBase(), Astro.site).href,
+  },
+};
+---
+
+<BaseLayout
+  title={`${term.term}, simply explained · ${site.name}`}
+  description={term.definition}
+  structured={structured}
+>
+  <main id="main" class="wrap term-page flex-grow-1">
+    <nav class="breadcrumbs small mb-4" aria-label="Breadcrumb">
+      <a href={withBase()}>Dictionary</a>
+      <span class="mx-2" aria-hidden="true">
+        /
+      </span>
+      <a href={`${withBase()}?category=${category.id}`}>{category.name}</a>
+    </nav>
+    <div class="article-card">
+      <TermDetail term={term} category={category} related={related} isPage />
+    </div>
+  </main>
+  <script src="../../scripts/copy.ts"></script>
+</BaseLayout>

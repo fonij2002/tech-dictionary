@@ -1,0 +1,1622 @@
+# Complete replacement for data/terms/programming.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: algorithm
+  term: Algorithm
+  aliases: []
+  category: programming
+  level: beginner
+  tags:
+    - programming
+  definition: >-
+    A sequence of steps for solving a problem or performing a task.
+  analogy: >-
+    A recipe for your computer, with fewer inspirational life stories.
+  example: >-
+    To find the largest number, compare each number with the biggest so far.
+  caveat: >-
+    An algorithm can be described without writing code.
+  related:
+    - data-structure
+    - big-o
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: array
+  term: Array
+  aliases:
+    - JavaScript array
+    - arrays
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    An ordered JavaScript collection whose elements can be accessed with zero-based
+    indexes.
+  analogy: >-
+    A row of numbered lockers where the first locker insists its number is zero.
+  example: >-
+    const terms = ['API', 'React']; terms[0] returns 'API'.
+  caveat: >-
+    JavaScript arrays can mix value types and change length. They are objects, and many
+    methods mutate them in place.
+  related:
+    - object
+    - mutation
+    - data-structure
+  sources:
+    - title: "MDN: Array"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+- id: async-function
+  term: async function
+  aliases:
+    - async
+    - async keyword
+    - async/await
+    - await
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A JavaScript function declared with async that always returns a promise and can use
+    await to pause its own execution for a result.
+  analogy: >-
+    A waiter who can leave your table while an order is pending without closing the
+    restaurant.
+  example: >-
+    async function load() { const r = await fetch('/api/terms'); return r.json(); }
+    returns a promise.
+  caveat: >-
+    await pauses that function, not the entire runtime. async does not move CPU-heavy code
+    to another thread; top-level await is supported in modules.
+  related:
+    - async
+    - promise
+    - fetch-api
+  sources:
+    - title: "MDN: async function"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+- id: async
+  term: Asynchronous
+  aliases:
+    - asynchrony
+    - asynchronous operation
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Describes work whose result can arrive later without requiring the caller to block
+    until it completes.
+  analogy: >-
+    Order coffee, do another task, and return when your name is shouted with creative
+    spelling.
+  example: >-
+    A browser can handle user input while an asynchronous network request is pending.
+  caveat: >-
+    Asynchronous does not automatically mean parallel or run on a new thread. Long
+    synchronous JavaScript can still block the UI.
+  related:
+    - async-function
+    - promise
+    - callback
+    - io
+  sources:
+    - title: "MDN: Asynchronous"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Introducing
+- id: backslash
+  term: Backslash
+  aliases:
+    - reverse solidus
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    The character \ used in JavaScript strings to introduce escape sequences and in some
+    systems as a path separator.
+  analogy: >-
+    A tiny leaning bouncer telling the next character, 'You are entering in disguise.'
+  example: >-
+    In JavaScript, '\n' represents a newline, while '\\' represents one literal backslash.
+  caveat: >-
+    A backslash is not a forward slash /. Its meaning depends on the language or context,
+    and nested escaping may require extra care.
+  related:
+    - string
+    - javascript
+    - windows
+  sources:
+    - title: "MDN: Backslash"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals
+- id: big-o
+  term: Big O
+  aliases:
+    - time complexity
+    - space complexity
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    Notation describing an upper bound on how resource use grows as input size grows.
+  analogy: >-
+    The 'how bad does this get with a million guests?' forecast.
+  example: >-
+    Scanning n items once usually takes O(n) time.
+  caveat: >-
+    It describes growth, not an exact running time in seconds.
+  related:
+    - algorithm
+    - data-structure
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: boilerplate
+  term: Boilerplate
+  aliases:
+    - boilerplate code
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Repetitive setup or structural code needed before the code specific to a task can do
+    its work.
+  analogy: >-
+    The paperwork you fill in before being allowed to write the interesting sentence.
+  example: >-
+    A project scaffold supplies package scripts, configuration, and starter files before
+    you implement search.
+  caveat: >-
+    Boilerplate can encode useful conventions. Hiding it behind tools reduces repetition
+    but does not remove the need to understand it.
+  related:
+    - framework
+    - codebase
+    - refactoring
+  sources:
+    - title: "MDN: Boilerplate for a WebGL rendering context"
+      url: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/By_example/Boilerplate_1
+- id: boolean
+  term: Boolean
+  aliases:
+    - bool
+  category: programming
+  level: beginner
+  tags:
+    - programming
+  definition: >-
+    A data type with two values, usually called true and false.
+  analogy: >-
+    A yes-or-no answer that refuses to add 'well, it depends'.
+  example: >-
+    The value isLoggedIn can be true or false.
+  caveat: >-
+    Truthiness rules are language-specific and are not always Boolean values.
+  related:
+    - data-type
+    - conditional
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: callback
+  term: Callback function
+  aliases:
+    - callback
+    - callbacks
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A function supplied to other code so that code can invoke it when appropriate.
+  analogy: >-
+    Leaving your phone number with the restaurant; sometimes they call later, sometimes
+    immediately.
+  example: >-
+    [1, 2, 3].map(n => n * 2) calls the supplied callback for each array element.
+  caveat: >-
+    Callbacks can be synchronous or asynchronous. Passing a function is different from
+    immediately calling it and passing its result.
+  related:
+    - function
+    - function-argument
+    - async
+    - callback-prop
+  sources:
+    - title: "MDN: Callback function"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Callback_function
+- id: chaining
+  term: Chaining
+  aliases:
+    - chain
+    - method chaining
+    - promise chain
+    - promise chaining
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Connecting operations so a returned value or promise becomes the starting point for
+    the next operation.
+  analogy: >-
+    A relay race where the baton is data, and forgetting to return it ruins everyone's
+    afternoon.
+  example: >-
+    fetch('/api/terms').then(r => r.json()).then(terms => terms.length) chains
+    promise-based steps.
+  caveat: >-
+    Return a needed value or promise from each .then handler. Chaining synchronous methods
+    does not make them asynchronous.
+  related:
+    - promise
+    - method
+    - pipeline
+  sources:
+    - title: "MDN: Chaining"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+- id: compiler
+  term: Compiler
+  aliases:
+    - compilation
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A program that translates source code into another form, often machine code.
+  analogy: >-
+    The translator who prepares the whole speech before the show.
+  example: >-
+    A C compiler can produce an executable from source files.
+  caveat: >-
+    Compilation and interpretation can coexist in one runtime.
+  related:
+    - interpreter
+    - runtime
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: concurrency
+  term: Concurrency
+  aliases:
+    - concurrent
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    Organizing multiple tasks so they can make progress during overlapping periods.
+  analogy: >-
+    One chef switching between dishes while different pots simmer.
+  example: >-
+    A server can handle other requests while one waits for a database.
+  caveat: >-
+    Concurrent work may run on a single processor core.
+  related:
+    - parallelism
+    - async
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: conditional
+  term: Conditional
+  aliases:
+    - if statement
+    - branching
+  category: programming
+  level: beginner
+  tags:
+    - programming
+  definition: >-
+    Code that chooses what to do based on whether a condition is true.
+  analogy: >-
+    The fork in the road, minus the dramatic movie soundtrack.
+  example: >-
+    If the cart is empty, hide the checkout button.
+  caveat: >-
+    Several conditions can overlap; their order may matter.
+  related:
+    - boolean
+    - loop
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: const
+  term: const
+  aliases:
+    - const declaration
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A JavaScript declaration for a block-scoped binding that cannot be reassigned after
+    initialization.
+  analogy: >-
+    A permanent name tag on a box, not a promise that nobody can rearrange its contents.
+  example: >-
+    const user = { name: 'Ada' }; user.name = 'Grace'; is allowed, but user = {}; is not.
+  caveat: >-
+    const does not make objects or arrays immutable. A const declaration needs an
+    initializer and has a temporal dead zone.
+  related:
+    - let
+    - immutable
+    - variable-assignment
+  sources:
+    - title: "MDN: const"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
+- id: constructor
+  term: Constructor
+  aliases:
+    - class constructor
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A function or class method used to initialize an object when an instance is created.
+  analogy: >-
+    The move-in checklist that gives a new object its keys, furniture, and unreasonable
+    defaults.
+  example: >-
+    class User { constructor(name) { this.name = name; } } initializes new User('Ada').
+  caveat: >-
+    React function components have no constructor method. Class constructors and ordinary
+    function calls have different rules.
+  related:
+    - object
+    - function
+    - initial-state
+  sources:
+    - title: "MDN: Constructor"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
+- id: coupling
+  term: Coupling
+  aliases:
+    - tight coupling
+    - loose coupling
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    The degree to which parts of a system depend on each other's details, behavior, or
+    structure.
+  analogy: >-
+    Two appliances sharing a power cable so enthusiastically that moving the toaster
+    relocates the fridge.
+  example: >-
+    A component that knows a database's table layout is coupled to that storage
+    implementation.
+  caveat: >-
+    Some coupling is unavoidable and useful. Reduce dependencies on unstable details
+    rather than aiming for a system where nothing knows anything.
+  related:
+    - decoupling
+    - interface
+    - single-responsibility-principle
+  sources:
+    - title: Coupling — reference and documentation
+      url: https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles
+- id: data-structure
+  term: Data structure
+  aliases:
+    - array
+    - list
+    - hash map
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A way of organizing data so particular operations are convenient or efficient.
+  analogy: >-
+    Choosing shelves, drawers, or a pile on the floor for your information.
+  example: >-
+    A map can associate each username with a profile.
+  caveat: >-
+    The best structure depends on how you access and change the data.
+  related:
+    - algorithm
+    - big-o
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: data-type
+  term: Data type
+  aliases:
+    - type
+  category: programming
+  level: beginner
+  tags:
+    - programming
+  definition: >-
+    A classification that describes what kind of value something is and which operations
+    make sense.
+  analogy: >-
+    Labels that stop you from trying to multiply a sandwich.
+  example: >-
+    Numbers, strings, and Booleans are common data types.
+  caveat: >-
+    A type system can be stricter or looser depending on the language.
+  related:
+    - variable
+    - type-system
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: decoupling
+  term: Decoupling
+  aliases:
+    - loose coupling
+    - separation of concerns
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Reducing unnecessary dependencies so parts can change, be tested, or be replaced with
+    less impact on each other.
+  analogy: >-
+    Giving the toaster and fridge their own cables before somebody asks for a kitchen
+    redesign.
+  example: >-
+    Pass a repository interface to application logic instead of importing a specific
+    database client everywhere.
+  caveat: >-
+    An extra interface does not automatically remove behavioral dependencies.
+    Over-abstraction can add complexity without useful independence.
+  related:
+    - coupling
+    - interface
+    - test-double
+  sources:
+    - title: Decoupling — reference and documentation
+      url: https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles
+- id: design-pattern
+  term: Design pattern
+  aliases:
+    - software design pattern
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A named, reusable approach to a recurring design problem, adapted to a particular
+    context rather than pasted as finished code.
+  analogy: >-
+    A tried-and-tested seating plan, not a command to host every dinner in exactly the
+    same room.
+  example: >-
+    The Factory Pattern centralizes object creation when the concrete type depends on
+    input.
+  caveat: >-
+    A pattern is useful only when it fits the problem. Adding named patterns unnecessarily
+    can make simple code harder to follow.
+  related:
+    - factory-pattern
+    - mvc
+    - refactoring
+  sources:
+    - title: Design pattern — reference and documentation
+      url: https://www.martinfowler.com/articles/writingPatterns.html
+- id: es6
+  term: ES6
+  aliases:
+    - ES2015
+    - ECMAScript 2015
+    - ECMAScript 6
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    The 2015 edition of the ECMAScript standard that added features including let, const,
+    arrow functions, classes, and modules.
+  analogy: >-
+    JavaScript's big wardrobe update; the old shirts did not instantly disappear.
+  example: >-
+    const double = n => n * 2; uses an arrow function and a const declaration.
+  caveat: >-
+    ES6 is one historical edition, not a name for all modern JavaScript. Browser support
+    depends on the specific feature.
+  related:
+    - javascript
+    - let
+    - const
+    - module
+  sources:
+    - title: ES6 — reference and documentation
+      url: https://262.ecma-international.org/6.0/
+- id: exception
+  term: Exception
+  aliases:
+    - error handling
+    - try catch
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A signal that normal execution cannot continue and needs an error-handling path.
+  analogy: >-
+    Your program pulling the emergency cord instead of silently eating the problem.
+  example: >-
+    A file operation can raise an exception if the file is missing.
+  caveat: >-
+    Exceptions are not a substitute for validating expected inputs.
+  related:
+    - debugging
+    - unit-test
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: factory-pattern
+  term: Factory Pattern
+  aliases:
+    - factory function
+    - object factory
+    - factory method
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A creational design approach that puts object creation behind a function or
+    abstraction so callers need not choose or construct concrete implementations directly.
+  analogy: >-
+    Order a drink at the counter without personally assembling the espresso machine.
+  example: >-
+    createStorage('memory') returns an in-memory store, while createStorage('disk')
+    returns a disk-backed store with the same interface.
+  caveat: >-
+    A simple factory function, the formal Factory Method pattern, and Abstract Factory are
+    related but distinct. Do not add factories without useful variation.
+  related:
+    - design-pattern
+    - constructor
+    - interface
+  sources:
+    - title: "Microsoft Learn: Simple Factory, Factory Method, and Abstract Factory"
+      url: https://learn.microsoft.com/en-us/shows/visual-studio-toolbox/design-patterns-factories
+- id: function
+  term: Function
+  aliases:
+    - JavaScript function
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A callable piece of code that can receive inputs, perform work, and return a value.
+  analogy: >-
+    A tiny recipe you can reuse without rewriting the cookbook each time.
+  example: >-
+    function double(n) { return n * 2; } returns 6 when called with double(3).
+  caveat: >-
+    Functions need not be pure or return an explicit value. In JavaScript, falling through
+    without returning produces undefined.
+  related:
+    - function-parameter
+    - function-argument
+    - method
+    - callback
+  sources:
+    - title: "MDN: Function"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+- id: function-argument
+  term: Function argument
+  aliases:
+    - argument
+    - actual parameter
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    An actual value or expression supplied when a function is called.
+  analogy: >-
+    The pizza you actually deliver, rather than the empty box drawn on the order form.
+  example: >-
+    In greet('Ada'), the string 'Ada' is the argument.
+  caveat: >-
+    An argument is supplied by the caller; a parameter is the named slot in the function
+    definition.
+  related:
+    - function-parameter
+    - function
+  sources:
+    - title: "MDN: Function argument"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Argument
+- id: function-parameter
+  term: Function parameter
+  aliases:
+    - formal parameter
+    - function parameters
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A named input in a function definition that receives a value when the function is
+    called.
+  analogy: >-
+    The labeled slot in a vending machine, patiently waiting for an argument-shaped snack.
+  example: >-
+    In function greet(name) { return 'Hi ' + name; }, name is a parameter.
+  caveat: >-
+    In JavaScript, a missing argument normally produces undefined unless a default or
+    other handling applies.
+  related:
+    - function-argument
+    - function
+  sources:
+    - title: "MDN: Function parameter"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Parameter
+- id: hard-coding
+  term: Hard-coding
+  aliases:
+    - hardcoding
+    - hard-coded value
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Embedding a fixed value directly in code instead of obtaining it from configuration,
+    input, or another data source.
+  analogy: >-
+    Writing the Wi-Fi password on the wall and calling the wall a configuration system.
+  example: >-
+    const apiUrl = 'https://api.example.com'; hard-codes an API base URL.
+  caveat: >-
+    Fixed values can be appropriate constants. Secrets and environment-specific settings
+    usually need safer, changeable configuration.
+  related:
+    - environment-variable
+    - secret
+    - refactoring
+  sources:
+    - title: Hard-coding — reference and documentation
+      url: https://cwe.mitre.org/data/definitions/547.html
+- id: hoisting
+  term: Hoisting
+  aliases: []
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    The name for declaration behaviors that can make bindings affect a scope before
+    execution reaches their written declaration.
+  analogy: >-
+    The guest list reaches the party before some guests receive permission to enter.
+  example: >-
+    sayHi(); function sayHi() { return 'Hi'; } works because the function declaration is
+    initialized early.
+  caveat: >-
+    Source code is not literally moved. var is initialized to undefined early; let, const,
+    and classes cannot be used before initialization.
+  related:
+    - var
+    - let
+    - const
+    - variable-initialization
+  sources:
+    - title: "MDN: Hoisting"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
+- id: immutable
+  term: Immutable
+  aliases:
+    - immutability
+    - immutable data
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Unable to change after creation, or deliberately treated as unchangeable so updates
+    produce new values instead.
+  analogy: >-
+    A printed menu: publish a new edition instead of scribbling over everyone's copy.
+  example: >-
+    const next = [...items, 'new']; creates a new array rather than pushing into items.
+  caveat: >-
+    JavaScript objects are mutable by default. const protects the binding, and
+    Object.freeze is shallow unless nested values are handled too.
+  related:
+    - mutation
+    - const
+    - pure-function
+  sources:
+    - title: "MDN: Immutable"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Immutable
+- id: interface
+  term: Interface
+  aliases:
+    - software interface
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A defined boundary through which people or software interact with a system, specifying
+    the available operations or information.
+  analogy: >-
+    The service window: an agreed way to ask for help without climbing inside the kitchen.
+  example: >-
+    A storage interface can specify get(key), set(key, value), and remove(key).
+  caveat: >-
+    Context changes the meaning: UI, API, and TypeScript interface are related ideas. A
+    TypeScript interface alone does not validate runtime data.
+  related:
+    - api
+    - ui
+    - coupling
+  sources:
+    - title: "MDN: Interface"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Interface
+- id: interpreter
+  term: Interpreter
+  aliases:
+    - interpretation
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A program that carries out instructions from code or an intermediate representation.
+  analogy: >-
+    The translator working through the script as the show happens.
+  example: >-
+    A shell interprets commands you enter.
+  caveat: >-
+    Many interpreters also compile code internally.
+  related:
+    - compiler
+    - runtime
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: let
+  term: let
+  aliases:
+    - let declaration
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A JavaScript declaration for a block-scoped variable whose value can be reassigned.
+  analogy: >-
+    A locker key valid for this room, with permission to swap the snacks.
+  example: >-
+    let count = 0; count += 1; updates a variable that belongs to its surrounding block.
+  caveat: >-
+    A let binding exists in a temporal dead zone until initialized; accessing it earlier
+    throws rather than returning undefined.
+  related:
+    - var
+    - const
+    - hoisting
+  sources:
+    - title: "MDN: let"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+- id: loop
+  term: Loop
+  aliases:
+    - iteration
+  category: programming
+  level: beginner
+  tags:
+    - programming
+  definition: >-
+    Code that repeats while a condition holds or for items in a collection.
+  analogy: >-
+    Your computer saying 'one more time' without getting bored.
+  example: >-
+    A loop can send a reminder for each overdue task.
+  caveat: >-
+    A condition that never changes can cause an infinite loop.
+  related:
+    - algorithm
+    - recursion
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: method
+  term: Method
+  aliases:
+    - object method
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A function associated with an object, usually accessed through one of its properties.
+  analogy: >-
+    A toolbox that comes with its own instruction button instead of a loose instruction
+    leaflet.
+  example: >-
+    const user = { greet() { return 'Hi'; } }; user.greet() calls a method.
+  caveat: >-
+    For ordinary JavaScript functions, this depends on how the function is called.
+    Extracting a method can lose its intended receiver.
+  related:
+    - function
+    - object
+    - chaining
+  sources:
+    - title: "MDN: Method"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Method
+- id: mvc
+  term: Model-View-Controller
+  aliases:
+    - MVC
+    - Model View Controller
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    An architectural pattern that separates domain data and behavior, its presentation,
+    and input handling or coordination.
+  analogy: >-
+    The records clerk, noticeboard, and receptionist have different jobs even when they
+    share an office.
+  example: >-
+    A controller receives a request, asks a model for data, and chooses a view to present
+    the result.
+  caveat: >-
+    MVC has several variants, especially on the web. A React component alone is not a
+    complete MVC architecture.
+  related:
+    - design-pattern
+    - frontend
+    - backend
+  sources:
+    - title: Model-View-Controller — reference and documentation
+      url: https://martinfowler.com/eaaCatalog/modelViewController.html
+- id: module
+  term: Module
+  aliases:
+    - modules
+    - ES module
+    - JavaScript module
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A unit of code with its own scope that can explicitly export values and import values
+    from other modules.
+  analogy: >-
+    A workshop with a service window: exported tools go out, private clutter stays inside.
+  example: >-
+    export const double = n => n * 2; can be imported by another JavaScript module.
+  caveat: >-
+    JavaScript has ES modules and other module systems such as CommonJS. Their loading
+    rules and interoperability differ.
+  related:
+    - es6
+    - node-js
+    - library
+  sources:
+    - title: "MDN: Module"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+- id: mutation
+  term: Mutation
+  aliases:
+    - data mutation
+    - mutating state
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Changing an existing object or data structure in place rather than producing a
+    separate updated value.
+  analogy: >-
+    Editing the shared whiteboard while everyone else thinks they still have yesterday's
+    photograph.
+  example: >-
+    items.push('new') mutates items; const next = [...items, 'new']; creates a new array.
+  caveat: >-
+    Mutation is not always wrong, but mutating React state or shared inputs can break
+    assumptions. Spread copies are shallow.
+  related:
+    - immutable
+    - object
+    - array
+    - state-management
+  sources:
+    - title: Mutation — reference and documentation
+      url: https://react.dev/learn/updating-objects-in-state
+- id: object
+  term: Object
+  aliases:
+    - JavaScript object
+    - objects
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A JavaScript value that groups properties identified by string or symbol keys, often
+    combining data and behavior.
+  analogy: >-
+    A labeled toolbox: name in one compartment, tools in another, and occasionally a
+    function that makes coffee.
+  example: >-
+    const user = { name: 'Ada', greet() { return 'Hi'; } }; groups properties and a method.
+  caveat: >-
+    Objects are compared by identity, not by matching contents. Two object literals with
+    the same fields are different objects.
+  related:
+    - array
+    - method
+    - json
+  sources:
+    - title: "MDN: Object"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects
+- id: parallelism
+  term: Parallelism
+  aliases:
+    - parallel
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    Executing multiple tasks at the same time using multiple execution resources.
+  analogy: >-
+    Several chefs actually cooking at the same moment.
+  example: >-
+    Several CPU cores can process separate images simultaneously.
+  caveat: >-
+    Parallelism can introduce coordination overhead.
+  related:
+    - concurrency
+    - thread
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: pipeline
+  term: Pipeline
+  aliases:
+    - processing pipeline
+    - data pipeline
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A sequence of stages that process input, passing results onward toward an output.
+  analogy: >-
+    A sandwich assembly line, except the cheese stage should not secretly redeploy
+    production.
+  example: >-
+    A search pipeline normalizes text, filters matching entries, sorts results, and
+    formats them for display.
+  caveat: >-
+    Pipeline can also mean CI/CD or shell processing. Error handling, ordering, and
+    backpressure depend on the implementation.
+  related:
+    - chaining
+    - etl
+    - ci
+  sources:
+    - title: Pipeline — reference and documentation
+      url: https://learn.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters
+- id: promise
+  term: Promise
+  aliases:
+    - JavaScript Promise
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A JavaScript object representing an eventual result: it starts pending and settles as
+    fulfilled with a value or rejected with a reason.
+  analogy: >-
+    A numbered takeaway ticket, not the meal itself and definitely not a guarantee that
+    dinner will succeed.
+  example: >-
+    fetch('/api/terms').then(response =>
+    response.json()).then(showTerms).catch(showError); handles an eventual result.
+  caveat: >-
+    Promises are not automatically cancellable or parallel. A .then callback's return
+    value determines the next promise's outcome.
+  related:
+    - async
+    - async-function
+    - chaining
+    - callback
+  sources:
+    - title: "MDN: Promise"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+- id: pure-function
+  term: Pure function
+  aliases:
+    - purity
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A function whose result depends only on its inputs and that has no observable side
+    effects.
+  analogy: >-
+    A vending machine that gives the same snack for the same buttons, without texting your
+    boss.
+  example: >-
+    A function that adds two numbers without changing other state is pure.
+  caveat: >-
+    Reading changing external state can make a function impure.
+  related:
+    - function
+    - unit-test
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: recursion
+  term: Recursion
+  aliases: []
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A technique where a function solves a problem by calling itself on smaller cases.
+  analogy: >-
+    Opening a box containing a smaller box, until you reach the last box.
+  example: >-
+    A function can recursively visit folders inside folders.
+  caveat: >-
+    A stopping case is essential; deep calls can exhaust the stack.
+  related:
+    - function
+    - stack
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: reducer
+  term: Reducer
+  aliases:
+    - state reducer
+    - Redux reducer
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A function that calculates an accumulated or next value from the current value and an
+    input; state reducers commonly use the previous state and an action.
+  analogy: >-
+    A scorekeeper who reads one event and writes the next score without secretly ordering
+    pizza.
+  example: >-
+    function reducer(state, action) { return action.type === 'increment' ? state + 1 :
+    state; }
+  caveat: >-
+    React and Redux reducers should be pure and avoid side effects or direct mutation of
+    existing state. Redux Toolkit's draft syntax is a special abstraction.
+  related:
+    - redux
+    - pure-function
+    - immutable
+    - array
+  sources:
+    - title: Reducer — reference and documentation
+      url: https://react.dev/learn/extracting-state-logic-into-a-reducer
+- id: runtime
+  term: Runtime
+  aliases:
+    - runtime environment
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    The environment and support software a program uses while executing.
+  analogy: >-
+    The stage, lights, and crew your code needs to perform.
+  example: >-
+    Node.js is a JavaScript runtime outside the browser.
+  caveat: >-
+    A runtime is not necessarily the same thing as a framework.
+  related:
+    - compiler
+    - framework
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: single-responsibility-principle
+  term: Single Responsibility Principle
+  aliases:
+    - SRP
+    - single responsibility
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A design principle that groups code around one responsibility, so it has one coherent
+    reason to change.
+  analogy: >-
+    Do not make the chef also handle payroll just because both tasks involve dough.
+  example: >-
+    Separate invoice calculation from PDF formatting because pricing rules and document
+    layouts change for different reasons.
+  caveat: >-
+    One responsibility does not mean one line, one method, or one HTML element. Choose
+    boundaries based on related reasons for change.
+  related:
+    - react-component
+    - coupling
+    - refactoring
+  sources:
+    - title: Single Responsibility Principle — reference and documentation
+      url: https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html
+- id: stack
+  term: Stack
+  aliases:
+    - LIFO
+    - call stack
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    A structure where the most recently added item is removed first.
+  analogy: >-
+    A stack of plates: taking the bottom one is a risky hobby.
+  example: >-
+    Function calls are commonly tracked using a call stack.
+  caveat: >-
+    Stack storage details vary between languages and runtimes.
+  related:
+    - data-structure
+    - recursion
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: statement
+  term: Statement
+  aliases:
+    - JavaScript statement
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - react
+    - javascript
+  definition: >-
+    A unit of code that performs an action or controls execution, such as a declaration,
+    return, or if statement.
+  analogy: >-
+    A script's stage direction: announce a variable, take a turn, or leave the scene.
+  example: >-
+    if (count > 0) { console.log(count); } is a conditional statement.
+  caveat: >-
+    An expression produces a value; a statement describes an action or control structure.
+    Some statements contain expressions.
+  related:
+    - conditional
+    - variable-declaration
+    - function
+  sources:
+    - title: "MDN: Statement"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
+- id: string
+  term: String
+  aliases:
+    - text string
+    - strings
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    An immutable JavaScript primitive representing text as a sequence of UTF-16 code units.
+  analogy: >-
+    A text message that must be rewritten, rather than edited one character in place.
+  example: >-
+    const greeting = 'Hello'; greeting.toUpperCase() returns 'HELLO' without changing
+    greeting.
+  caveat: >-
+    String length counts UTF-16 code units, so an emoji or visible character may occupy
+    more than one unit.
+  related:
+    - immutable
+    - unicode
+    - data-type
+  sources:
+    - title: "MDN: String"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+- id: syntactic-sugar
+  term: Syntactic sugar
+  aliases:
+    - syntactical sugar
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Convenient syntax that expresses an existing operation more clearly or briefly without
+    adding fundamentally new capability.
+  analogy: >-
+    A prettier spoon for the same soup; dinner still has to be cooked.
+  example: >-
+    In a typical class, JavaScript method syntax is shorter than assigning equivalent
+    functions individually.
+  caveat: >-
+    Shorter syntax can have subtle semantics. For example, classes and arrow functions are
+    not interchangeable with every older function pattern.
+  related:
+    - es6
+    - javascript
+    - ternary-operator
+  sources:
+    - title: "MDN: JavaScript language overview"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Language_overview
+- id: ternary-operator
+  term: Ternary operator
+  aliases:
+    - conditional operator
+    - conditional expression
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    The JavaScript conditional operator that chooses between two expressions based on a
+    condition, using condition ? a : b.
+  analogy: >-
+    A tiny fork in the road with exactly two signposts and no room for a committee.
+  example: >-
+    const label = isLoggedIn ? 'Sign out' : 'Sign in'; chooses a label.
+  caveat: >-
+    It is an expression that returns a value. Deeply nested ternaries often cost more
+    readability than they save in lines.
+  related:
+    - conditional
+    - javascript
+    - syntactic-sugar
+  sources:
+    - title: "MDN: Ternary operator"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
+- id: type-system
+  term: Type system
+  aliases:
+    - static typing
+    - dynamic typing
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+  definition: >-
+    Rules a language uses to classify values and check how they are used.
+  analogy: >-
+    The bouncer checking whether values belong in the operations they enter.
+  example: >-
+    A static type checker can reject adding a string where a number is required.
+  caveat: >-
+    Static types do not prove every aspect of a program is correct.
+  related:
+    - data-type
+    - compiler
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: syntax-error-unexpected-token
+  term: "Uncaught SyntaxError: Unexpected token <"
+  aliases:
+    - Unexpected token <
+    - Unexpected token '<'
+    - SyntaxError
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A parsing error that occurs when JavaScript code contains a less-than token where the
+    parser cannot accept it.
+  analogy: >-
+    You ordered JavaScript, but the waiter may have brought an HTML menu.
+  example: >-
+    A script URL returns an HTML fallback page starting with <!doctype html>, so the
+    browser cannot parse it as JavaScript.
+  caveat: >-
+    Other causes include untransformed JSX. Inspect the response and build setup; a
+    similar JSON parsing error can also mean an endpoint returned HTML.
+  related:
+    - jsx
+    - babel
+    - content-type
+    - browser-console
+  sources:
+    - title: "MDN: SyntaxError — unexpected token"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token
+- id: uuid
+  term: UUID
+  aliases:
+    - Universally Unique Identifier
+    - GUID
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A standardized 128-bit identifier format designed to make independently generated
+    identifiers very unlikely to collide.
+  analogy: >-
+    A name tag long enough that two strangers probably will not accidentally become the
+    same database row.
+  example: >-
+    crypto.randomUUID() generates a random version 4 UUID in supported secure browser
+    contexts.
+  caveat: >-
+    Uniqueness is probabilistic for random UUIDs. A UUID is not automatically a secret, an
+    authorization check, or a chronologically sortable value.
+  related:
+    - primary-key
+    - object
+    - database
+  sources:
+    - title: "RFC 9562: Universally Unique IDentifiers"
+      url: https://www.rfc-editor.org/rfc/rfc9562
+- id: var
+  term: var
+  aliases:
+    - var declaration
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    A JavaScript declaration that creates a function-scoped or global-scoped variable
+    rather than a block-scoped one.
+  analogy: >-
+    The office worker who ignores cubicle walls and treats the whole floor as one desk.
+  example: >-
+    function demo() { if (true) { var x = 1; } return x; } returns 1.
+  caveat: >-
+    var bindings are initialized to undefined before their declaration executes, and
+    redeclaration is allowed. Prefer let or const when block scope is intended.
+  related:
+    - let
+    - const
+    - hoisting
+  sources:
+    - title: "MDN: var"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+- id: variable
+  term: Variable
+  aliases: []
+  category: programming
+  level: beginner
+  tags:
+    - programming
+  definition: >-
+    A name associated with a value that a program can use.
+  analogy: >-
+    A labeled box; whether you can swap its contents depends on the language.
+  example: >-
+    The variable score might hold the number 42.
+  caveat: >-
+    Some bindings are mutable; others cannot be reassigned.
+  related:
+    - data-type
+    - function
+  sources:
+    - title: Python language tutorial
+      url: https://docs.python.org/3/tutorial/
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: variable-assignment
+  term: Variable assignment
+  aliases:
+    - assignment
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Storing a value in an existing variable binding, usually with the = operator.
+  analogy: >-
+    Replacing the contents of a labeled box without renaming the box.
+  example: >-
+    let score = 0; score = 10; assigns a new value to score.
+  caveat: >-
+    A const binding cannot be reassigned, although an object it references can still be
+    mutated.
+  related:
+    - variable-initialization
+    - const
+    - mutation
+  sources:
+    - title: "MDN: Variable assignment"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment
+- id: variable-declaration
+  term: Variable declaration
+  aliases: []
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Introducing a variable name into a scope using a declaration such as let, const, or
+    var.
+  analogy: >-
+    Putting a name tag on a locker before deciding what goes inside.
+  example: >-
+    let score; declares a block-scoped variable named score.
+  caveat: >-
+    A let declaration without an initializer initializes the binding to undefined when
+    execution reaches it; const requires an initializer.
+  related:
+    - variable-initialization
+    - let
+    - const
+    - var
+  sources:
+    - title: "MDN: Variable declaration"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+- id: variable-definition
+  term: Variable definition
+  aliases: []
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Establishing what a variable is and, depending on the language, providing its storage
+    or value.
+  analogy: >-
+    Giving a mystery box an identity before asking it to hold your snacks.
+  example: >-
+    In JavaScript, let score = 0; declares score and gives it its first value.
+  caveat: >-
+    Definition and declaration are language-dependent terms; JavaScript has no separate
+    variable-definition keyword.
+  related:
+    - variable-declaration
+    - variable-initialization
+    - variable-assignment
+  sources:
+    - title: "MDN: Variable definition"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types
+- id: variable-initialization
+  term: Variable initialization
+  aliases:
+    - initialization
+    - variable initialisation
+  category: programming
+  level: beginner
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Giving a variable its initial value when its binding becomes initialized.
+  analogy: >-
+    The first snack in the locker, before the snack rotation begins.
+  example: >-
+    let score = 0; initializes score with 0; let name; initializes name with undefined.
+  caveat: >-
+    Initialization is the first value, not every later assignment. A lexical binding
+    cannot be read before initialization.
+  related:
+    - variable-declaration
+    - variable-assignment
+    - hoisting
+  sources:
+    - title: "MDN: Variable initialization"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types
+- id: wrapper
+  term: Wrapper
+  aliases:
+    - wrapper function
+    - wrapper component
+  category: programming
+  level: intermediate
+  tags:
+    - programming
+    - javascript
+  definition: >-
+    Code that surrounds another function, component, or API to adapt it or add behavior.
+  analogy: >-
+    A lunchbox around an existing sandwich, adding convenience without inventing new bread.
+  example: >-
+    An API wrapper calls fetch, checks response.ok, and parses JSON before returning data.
+  caveat: >-
+    A wrapper need not create a DOM element. Extra layers can obscure errors or leak
+    underlying details if their contract is unclear.
+  related:
+    - interface
+    - api
+    - react-component
+  sources:
+    - title: "MDN: Wrapper"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Wrapper

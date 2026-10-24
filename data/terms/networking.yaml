@@ -1,0 +1,286 @@
+# Complete replacement for data/terms/networking.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: bandwidth
+  term: Bandwidth
+  aliases:
+    - network capacity
+  category: networking
+  level: beginner
+  tags:
+    - networking
+  definition: >-
+    The data-carrying capacity of a connection over time.
+  analogy: >-
+    How many lanes the road has, not how fast the first car arrives.
+  example: >-
+    A link rated at 100 Mbps has a stated capacity in bits per second.
+  caveat: >-
+    Actual throughput may be lower than rated bandwidth.
+  related:
+    - latency
+    - bit
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: client
+  term: Client
+  aliases:
+    - web client
+  category: networking
+  level: beginner
+  tags:
+    - networking
+  definition: >-
+    A program or device that requests a resource or service from a server.
+  analogy: >-
+    The diner placing an order, even when the diner is another restaurant.
+  example: >-
+    A browser requests a dictionary page; a backend service can also act as a client of
+    another API.
+  caveat: >-
+    Client does not always mean browser or end user. The role depends on the specific
+    interaction.
+  related:
+    - server
+    - frontend
+    - http
+  sources:
+    - title: "MDN: Client"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview
+- id: dns
+  term: DNS
+  aliases:
+    - domain name system
+  category: networking
+  level: beginner
+  tags:
+    - networking
+  definition: >-
+    A distributed system that maps domain names to records such as IP addresses.
+  analogy: >-
+    The internet's contact list, so you do not have to memorize everybody's numbers.
+  example: >-
+    DNS can resolve a website name to a server address.
+  caveat: >-
+    DNS provides several record types, not just address records.
+  related:
+    - ip-address
+    - http
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: ip-address
+  term: IP address
+  aliases:
+    - Internet Protocol address
+    - IPv4
+    - IPv6
+  category: networking
+  level: beginner
+  tags:
+    - networking
+  definition: >-
+    An address used to identify an interface or destination for IP communication.
+  analogy: >-
+    A delivery address for network traffic, with some very complicated apartment rules.
+  example: >-
+    A device can have a local IPv4 address such as 192.168.1.10.
+  caveat: >-
+    Addresses can change or be shared; they are not reliable person identifiers.
+  related:
+    - dns
+    - tcp
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: latency
+  term: Latency
+  aliases:
+    - response delay
+  category: networking
+  level: beginner
+  tags:
+    - networking
+  definition: >-
+    The time delay between an action and a relevant response.
+  analogy: >-
+    How long after 'hello?' you have to wait for 'hello!'.
+  example: >-
+    A request may take 120 milliseconds to receive its response.
+  caveat: >-
+    Specify what is measured; one-way and round-trip latency differ.
+  related:
+    - bandwidth
+    - cdn
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: long-polling
+  term: Long polling
+  aliases:
+    - long-polling
+    - HTTP long polling
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    A technique where a client sends a request that the server keeps open until new data
+    is available or a timeout occurs.
+  analogy: >-
+    Calling the help desk and staying on hold until there is actually something worth
+    hearing.
+  example: >-
+    A notifications client receives a held response when an update arrives, then
+    immediately opens the next request.
+  caveat: >-
+    Connections still time out and must reconnect. Long polling differs from repeated
+    short polling, streaming responses, and WebSockets.
+  related:
+    - http
+    - websocket
+    - webhook
+  sources:
+    - title: "RFC 6202: Known Issues and Best Practices for Long Polling and Streaming"
+      url: https://www.rfc-editor.org/rfc/rfc6202
+- id: packet
+  term: Packet
+  aliases:
+    - network packet
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    A unit of data transmitted over a network, with information needed to handle it.
+  analogy: >-
+    One parcel in a shipment, carrying both contents and delivery details.
+  example: >-
+    A large transfer is carried as many network packets.
+  caveat: >-
+    Packet formats and size limits depend on the network protocols.
+  related:
+    - tcp
+    - udp
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: port
+  term: Port
+  aliases:
+    - network port
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    A numerical identifier that helps transport protocols direct traffic to the right
+    endpoint.
+  analogy: >-
+    The apartment number after the building's IP address.
+  example: >-
+    HTTPS commonly uses TCP port 443.
+  caveat: >-
+    The same port number has separate meanings for different transport protocols.
+  related:
+    - ip-address
+    - tcp
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: proxy
+  term: Proxy
+  aliases:
+    - forward proxy
+    - reverse proxy
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    An intermediary that makes or handles requests on behalf of another party.
+  analogy: >-
+    A middleperson who takes the request, passes it along, and returns the answer.
+  example: >-
+    A reverse proxy can route incoming traffic to backend services.
+  caveat: >-
+    A proxy is not automatically private or secure.
+  related:
+    - server
+    - load-balancer
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: tcp
+  term: TCP
+  aliases:
+    - transmission control protocol
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    A transport protocol that provides an ordered, reliable byte stream between endpoints.
+  analogy: >-
+    A careful courier who tracks delivery and puts the pages back in order.
+  example: >-
+    Many web connections use TCP underneath higher-level protocols.
+  caveat: >-
+    Reliable delivery does not mean instant delivery or application-level success.
+  related:
+    - udp
+    - http
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: udp
+  term: UDP
+  aliases:
+    - user datagram protocol
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    A transport protocol that sends individual messages without built-in delivery or
+    ordering guarantees.
+  analogy: >-
+    Postcards: quick to send, but you manage missing or scrambled mail yourself.
+  example: >-
+    Real-time applications may use UDP-based protocols.
+  caveat: >-
+    Applications can add reliability; UDP itself does not provide it.
+  related:
+    - tcp
+    - packet
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: webhook
+  term: Webhook
+  aliases:
+    - HTTP callback
+    - webhooks
+  category: networking
+  level: intermediate
+  tags:
+    - networking
+  definition: >-
+    An event notification sent by a service to a configured HTTP endpoint when something
+    happens.
+  analogy: >-
+    The delivery service ringing your doorbell instead of making you check the porch every
+    ten seconds.
+  example: >-
+    A payment provider posts a payment.succeeded event to a merchant's webhook endpoint.
+  caveat: >-
+    Verify signatures and handle retries, duplicates, and out-of-order events. Do not
+    assume one delivery or trust an event just because it arrived.
+  related:
+    - endpoint
+    - post-request
+    - long-polling
+  sources:
+    - title: Webhook — reference and documentation
+      url: https://docs.github.com/en/webhooks/about-webhooks

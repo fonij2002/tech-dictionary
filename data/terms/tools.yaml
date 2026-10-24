@@ -1,0 +1,1051 @@
+# Complete replacement for data/terms/tools.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: assertion
+  term: Assertion
+  aliases:
+    - test assertion
+    - assert
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A check that states an expected condition and reports a failure when it is not met.
+  analogy: >-
+    The test's moment of truth: 'I expected tea; this appears to be a stapler.'
+  example: >-
+    expect(results).toHaveLength(3); asserts that a search returned three entries.
+  caveat: >-
+    An assertion checks one claim, not overall correctness. Choose checks that express
+    behavior rather than freezing incidental implementation details.
+  related:
+    - jest
+    - unit-test
+    - test-suite
+  sources:
+    - title: Assertion — reference and documentation
+      url: https://jestjs.io/docs/expect
+- id: babel
+  term: Babel
+  aliases:
+    - Babel.js
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    A JavaScript compiler toolchain that can transform newer syntax and JSX into
+    JavaScript suitable for configured target environments.
+  analogy: >-
+    A translator helping modern JavaScript chat with browsers that missed a few language
+    classes.
+  example: >-
+    A build uses @babel/preset-react to transform JSX and @babel/preset-env to target
+    supported browsers.
+  caveat: >-
+    Babel does not always output ES5. Syntax transforms and missing runtime APIs are
+    different problems; APIs may need polyfills.
+  related:
+    - transpiler
+    - babel-preset
+    - jsx
+    - es6
+  sources:
+    - title: Babel — reference and documentation
+      url: https://babeljs.io/docs/
+- id: babel-preset
+  term: Babel preset
+  aliases:
+    - Babel presets
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    A reusable bundle of Babel plugins and configuration for a particular transformation
+    goal.
+  analogy: >-
+    A combo meal of compiler settings, hopefully without an unwanted side of legacy
+    browser support.
+  example: >-
+    @babel/preset-react configures JSX-related transforms; @babel/preset-env selects
+    transforms based on targets.
+  caveat: >-
+    A preset is configuration, not the Babel runtime. Its options and installed plugins
+    determine what code is transformed.
+  related:
+    - babel
+    - transpiler
+    - jsx
+  sources:
+    - title: Babel preset — reference and documentation
+      url: https://babeljs.io/docs/presets
+- id: behavior-driven-style
+  term: Behavior-driven style
+  aliases:
+    - BDD style
+    - behavior-driven testing
+    - behavior-driven development
+    - BDD
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    An approach to describing software behavior through concrete scenarios and expected
+    outcomes, often written as Given, When, Then.
+  analogy: >-
+    A rehearsal script saying what the audience should see, rather than listing every
+    screw in the stage.
+  example: >-
+    Given no search matches, when the user searches, then an informative empty state
+    appears.
+  caveat: >-
+    Naming tests describe and it is only a style. Full BDD includes collaborative
+    discovery of behavior, not merely a particular test syntax.
+  related:
+    - test-suite
+    - assertion
+    - integration-test
+  sources:
+    - title: Behavior-driven style — reference and documentation
+      url: https://cucumber.io/docs/bdd/
+- id: bootstrap
+  term: Bootstrap
+  aliases:
+    - Bootstrap CSS
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A frontend toolkit with styles, layout utilities, and components for building
+    responsive interfaces.
+  analogy: >-
+    Flat-pack furniture for websites: a quick start, though every room need not look like
+    the showroom.
+  example: >-
+    Bootstrap classes such as container, row, col-md-6, and btn create a responsive layout
+    and button.
+  caveat: >-
+    Some interactive components need Bootstrap JavaScript. Accessibility still depends on
+    correct markup, labels, contrast, and application behavior.
+  related:
+    - css
+    - responsive-design
+    - ui-component
+  sources:
+    - title: Bootstrap — reference and documentation
+      url: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+- id: branch
+  term: Branch
+  aliases:
+    - git branch
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A movable reference in version control that lets work develop along a separate line.
+  analogy: >-
+    An alternate timeline where you can experiment before bringing the change home.
+  example: >-
+    A feature branch can hold work on a new category filter.
+  caveat: >-
+    Branches share history; they are not independent copies of everything.
+  related:
+    - git
+    - merge
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: browser-console
+  term: Browser console
+  aliases:
+    - developer console
+    - DevTools console
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A developer-tools panel for viewing messages and evaluating JavaScript in the context
+    of a web page.
+  analogy: >-
+    The browser's confession booth, except the errors rarely feel remorse.
+  example: >-
+    console.log({ count: 3 }); displays an inspectable value in the console.
+  caveat: >-
+    Console output can expose sensitive data. Pasting untrusted commands can execute code
+    with the page's privileges.
+  related:
+    - debugging
+    - javascript
+    - syntax-error-unexpected-token
+  sources:
+    - title: Browser console — reference and documentation
+      url: https://developer.chrome.com/docs/devtools/console
+- id: claude-code
+  term: Claude Code
+  aliases:
+    - Anthropic Claude Code
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    Anthropic's agentic coding tool that can inspect project files, propose and make
+    changes, run commands, and work with development tools.
+  analogy: >-
+    A fast coding collaborator who can hold the toolbox but still needs a sensible brief
+    and a review.
+  example: >-
+    Ask Claude Code to trace a failing test, change the relevant files, and run the
+    project's checks within granted permissions.
+  caveat: >-
+    It can make incorrect changes or run consequential actions. Review diffs and test
+    results, and limit permissions and sensitive-data exposure appropriately.
+  related:
+    - ai-agent
+    - harness
+    - codebase
+    - cli
+  sources:
+    - title: "Claude Code: Overview"
+      url: https://code.claude.com/docs/en/overview
+- id: cli
+  term: CLI
+  aliases:
+    - command-line interface
+    - terminal command
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    An interface controlled by typing commands rather than primarily clicking visual
+    controls.
+  analogy: >-
+    Talking to your computer in short, slightly bossy sentences.
+  example: >-
+    Running npm run build uses a command-line interface.
+  caveat: >-
+    A terminal hosts a session; a shell interprets its commands.
+  related:
+    - shell
+    - gui
+  sources:
+    - title: Bash manual
+      url: https://www.gnu.org/software/bash/manual/bash.html
+- id: code-review
+  term: Code review
+  aliases:
+    - review
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    Examining a proposed code change for correctness, clarity, and other project
+    requirements.
+  analogy: >-
+    A second pair of eyes before the recipe goes on the restaurant menu.
+  example: >-
+    A reviewer spots missing error handling in a pull request.
+  caveat: >-
+    Review complements automated checks; neither replaces the other.
+  related:
+    - pull-request
+    - unit-test
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: codebase
+  term: Codebase
+  aliases:
+    - code base
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    The collection of source code and related project files that make up a software system
+    or maintained project.
+  analogy: >-
+    The whole kitchen cookbook, including the handwritten notes nobody admits they added.
+  example: >-
+    A codebase may contain React components, server handlers, YAML data, tests, and build
+    configuration.
+  caveat: >-
+    A codebase is not always one repository, and a repository may contain several
+    applications or packages.
+  related:
+    - repository
+    - module
+    - refactoring
+  sources:
+    - title: Codebase — reference and documentation
+      url: https://12factor.net/codebase
+- id: commit
+  term: Commit
+  aliases:
+    - git commit
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A recorded snapshot in version history with metadata and a message.
+  analogy: >-
+    A save point with a note explaining what happened.
+  example: >-
+    A commit can record a fix to a broken search filter.
+  caveat: >-
+    A local commit is not automatically uploaded to a remote.
+  related:
+    - git
+    - pull-request
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: curl
+  term: curl
+  aliases:
+    - cURL
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A command-line tool for transferring data using URLs, commonly used to inspect and
+    call HTTP endpoints.
+  analogy: >-
+    A browser's practical cousin who skips the pictures and asks to see the headers.
+  example: >-
+    curl -i https://example.com/api/terms requests an endpoint and prints response headers
+    with the body.
+  caveat: >-
+    curl does not render a web page or execute its JavaScript. Avoid exposing credentials
+    in command history or copied examples.
+  related:
+    - cli
+    - http
+    - endpoint
+  sources:
+    - title: curl — reference and documentation
+      url: https://curl.se/docs/manpage.html
+- id: debugging
+  term: Debugging
+  aliases:
+    - debugger
+    - bug
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    Finding and understanding the cause of unintended software behavior.
+  analogy: >-
+    Detective work where the culprit is often a line you wrote yesterday.
+  example: >-
+    A breakpoint can help inspect why a value is unexpected.
+  caveat: >-
+    Changing code until the symptom disappears is not always finding the cause.
+  related:
+    - ide
+    - unit-test
+  sources:
+    - title: VS Code debugging
+      url: https://code.visualstudio.com/docs/debugtest/debugging
+- id: dependency
+  term: Dependency
+  aliases:
+    - package
+    - third-party package
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    Software or another component that your project relies on.
+  analogy: >-
+    A borrowed ingredient your recipe needs to work.
+  example: >-
+    An application may depend on a date-formatting package.
+  caveat: >-
+    Dependencies bring maintenance, license, and security responsibilities.
+  related:
+    - library
+    - package-manager
+  sources:
+    - title: npm package dependencies
+      url: https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file/
+- id: environment-variable
+  term: Environment variable
+  aliases:
+    - env var
+    - configuration
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A named value provided to a process through its execution environment.
+  analogy: >-
+    A sticky note handed to the program when it starts work.
+  example: >-
+    PORT=3000 can tell a server which port to listen on.
+  caveat: >-
+    Environment variables are not automatically secret or secure.
+  related:
+    - process
+    - secret
+  sources:
+    - title: Node.js environment variables
+      url: https://nodejs.org/api/environment_variables.html
+- id: git
+  term: Git
+  aliases:
+    - version control
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A distributed version-control system that records changes and helps people work on
+    code together.
+  analogy: >-
+    A time machine for files, with occasional arguments about parallel universes.
+  example: >-
+    Git records a project change in a commit.
+  caveat: >-
+    Git and GitHub are different things.
+  related:
+    - commit
+    - repository
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: github-pages
+  term: GitHub Pages
+  aliases:
+    - GH Pages
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    GitHub's hosting service for publishing static websites from repository content or
+    build artifacts.
+  analogy: >-
+    A public shelf for your website, next to the code that made it.
+  example: >-
+    A workflow publishes this dictionary's generated static files.
+  caveat: >-
+    It does not run a Django server or other application backend.
+  related:
+    - static-site
+    - deployment
+  sources:
+    - title: GitHub Pages documentation
+      url: https://docs.github.com/en/pages
+- id: gui
+  term: GUI
+  aliases:
+    - graphical user interface
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    An interface that uses visual elements such as windows, icons, and buttons.
+  analogy: >-
+    The click-and-point version of talking to a computer.
+  example: >-
+    A visual Git client provides buttons for staging changes.
+  caveat: >-
+    A GUI can expose the same operations as a CLI in a different form.
+  related:
+    - cli
+    - ux
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: harness
+  term: Harness
+  aliases:
+    - test harness
+    - agent harness
+    - software harness
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    Surrounding infrastructure that runs and controls a program, test, or AI agent,
+    providing inputs, tools, execution rules, and result collection.
+  analogy: >-
+    The stage crew, safety ropes, and cue sheet that let the performer do more than
+    improvise in an empty room.
+  example: >-
+    A test harness prepares fixtures and collects results; an agent harness manages tool
+    calls, context, and execution loops.
+  caveat: >-
+    The meaning depends on context. A harness is not the model or application logic
+    itself, and it cannot guarantee correct behavior.
+  related:
+    - test-suite
+    - ai-agent
+    - claude-code
+  sources:
+    - title: "Anthropic: Demystifying evals for AI agents"
+      url: https://www.anthropic.com/research/demystifying-evals-for-ai-agents
+    - title: "Python unittest: test runner and fixtures"
+      url: https://docs.python.org/3/library/unittest.html
+- id: headless
+  term: Headless
+  aliases:
+    - headless browser
+    - headless software
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    Describes software operating without its usual visible graphical interface, or a
+    system whose presentation layer is separated from its core.
+  analogy: >-
+    The restaurant kitchen can still cook even when there is no dining room attached.
+  example: >-
+    A headless browser loads a page, runs JavaScript, and checks behavior without opening
+    a visible browser window.
+  caveat: >-
+    Context matters: a headless browser still renders internally, while a headless CMS
+    exposes content for a separate frontend.
+  related:
+    - gui
+    - api
+    - frontend
+  sources:
+    - title: Headless — reference and documentation
+      url: https://developer.chrome.com/docs/chromium/headless
+- id: ide
+  term: IDE
+  aliases:
+    - integrated development environment
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    An application combining tools for writing, running, and inspecting code.
+  analogy: >-
+    A workbench with the editor, toolbox, and magnifying glass built in.
+  example: >-
+    An IDE can offer code completion and a debugger.
+  caveat: >-
+    The boundary between an IDE and an extensible editor is fuzzy.
+  related:
+    - debugging
+    - compiler
+  sources:
+    - title: VS Code documentation
+      url: https://code.visualstudio.com/docs
+- id: integration-test
+  term: Integration test
+  aliases:
+    - integration testing
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A test that checks whether multiple parts work together correctly across a chosen
+    boundary.
+  analogy: >-
+    Checking that the toaster, socket, and bread can cooperate before inviting guests.
+  example: >-
+    An API integration test sends a request through routing, validation, and database
+    access and checks the result.
+  caveat: >-
+    Define the boundary explicitly; teams use the label differently. A mocked network
+    layer cannot prove the real remote service works.
+  related:
+    - unit-test
+    - test-suite
+    - api
+  sources:
+    - title: Integration test — reference and documentation
+      url: https://martinfowler.com/bliki/IntegrationTest.html
+- id: jest
+  term: Jest
+  aliases:
+    - Jest testing framework
+  category: tools
+  level: beginner
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    A JavaScript testing framework with a test runner, assertions, mocking utilities, and
+    coverage support.
+  analogy: >-
+    The rehearsal supervisor who runs the scenes and points at the actor who forgot their
+    expected value.
+  example: >-
+    test('adds numbers', () => { expect(1 + 2).toBe(3); }); defines a Jest test.
+  caveat: >-
+    Jest does not itself supply a real browser. DOM simulations, module transforms, and
+    environment setup depend on your configuration.
+  related:
+    - test-suite
+    - assertion
+    - mock
+    - unit-test
+  sources:
+    - title: Jest — reference and documentation
+      url: https://jestjs.io/docs/getting-started
+- id: merge
+  term: Merge
+  aliases:
+    - git merge
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    Combining changes from different development histories.
+  analogy: >-
+    Two timelines agreeing on what the next episode should contain.
+  example: >-
+    A team merges a tested feature branch into main.
+  caveat: >-
+    Conflicting edits may require a human decision.
+  related:
+    - branch
+    - pull-request
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: mock
+  term: Mock
+  aliases:
+    - mock object
+    - mock function
+    - mocking
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A test double configured to replace a collaborator and help verify expected calls or
+    interactions.
+  analogy: >-
+    A rehearsal customer who follows a script and remembers whether you offered the refund.
+  example: >-
+    A mocked sendEmail function lets a test assert that a signup flow requested one
+    welcome email.
+  caveat: >-
+    Mock is often used loosely. A canned-response stub and a behavior-verifying mock serve
+    different purposes; excessive mocking can hide integration failures.
+  related:
+    - test-double
+    - unit-test
+    - integration-test
+  sources:
+    - title: Mock — reference and documentation
+      url: https://martinfowler.com/articles/mocksArentStubs.html
+- id: node-js
+  term: Node.js
+  aliases:
+    - Node
+    - NodeJS
+  category: tools
+  level: beginner
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    A JavaScript runtime that executes JavaScript outside the browser and supplies APIs
+    for tasks such as networking and file access.
+  analogy: >-
+    JavaScript gets an office outside the browser and immediately starts answering HTTP
+    requests.
+  example: >-
+    A Node.js script reads a YAML file from disk or starts an HTTP server.
+  caveat: >-
+    Node.js is neither a framework nor a browser. Its event loop supports asynchronous
+    I/O, but CPU-heavy synchronous code can still block it.
+  related:
+    - javascript
+    - runtime
+    - server
+    - io
+  sources:
+    - title: Node.js — reference and documentation
+      url: https://nodejs.org/en/learn/getting-started/introduction-to-nodejs
+- id: npm
+  term: npm
+  aliases:
+    - npm CLI
+    - Node Package Manager
+  category: tools
+  level: beginner
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    A JavaScript package ecosystem and command-line package manager used to install
+    dependencies, publish packages, and run project scripts.
+  analogy: >-
+    The supply counter for JavaScript projects, including both useful tools and a receipt
+    for everything you ordered.
+  example: >-
+    npm install adds project dependencies; npm run dev runs the project's dev script.
+  caveat: >-
+    npm is not Node.js itself. Review dependencies and lockfile changes; installing
+    packages can run lifecycle scripts.
+  related:
+    - package-manager
+    - node-js
+    - npx
+    - pnpm
+  sources:
+    - title: npm — reference and documentation
+      url: https://docs.npmjs.com/about-npm
+- id: npx
+  term: npx
+  aliases:
+    - npm exec
+  category: tools
+  level: beginner
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    An npm command for executing package-provided commands, using local packages or
+    fetching missing ones when needed.
+  analogy: >-
+    Borrowing a workshop tool for a job without permanently bolting it to your hallway.
+  example: >-
+    npx eslint . runs the package's command against the current project.
+  caveat: >-
+    A missing package may be downloaded and its code executed. Verify package names and
+    versions rather than treating npx commands as harmless text.
+  related:
+    - npm
+    - cli
+    - package-manager
+  sources:
+    - title: npx — reference and documentation
+      url: https://docs.npmjs.com/cli/v11/commands/npx/
+- id: package-manager
+  term: Package manager
+  aliases:
+    - npm
+    - pnpm
+    - pip
+    - uv
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A tool that helps install and manage software packages and their dependencies.
+  analogy: >-
+    The shopper who reads your ingredient list and fetches the right packages.
+  example: >-
+    npm can install dependencies described in package.json.
+  caveat: >-
+    Lockfiles help make dependency resolution repeatable.
+  related:
+    - dependency
+    - repository
+  sources:
+    - title: npm documentation
+      url: https://docs.npmjs.com/
+- id: pnpm
+  term: pnpm
+  aliases:
+    - performant npm
+  category: tools
+  level: beginner
+  tags:
+    - tools
+    - javascript
+  definition: >-
+    A JavaScript package manager that uses a shared content-addressed store and linked
+    dependencies to reduce duplicated package data.
+  analogy: >-
+    A shared warehouse instead of buying a fresh identical toolbox for every project.
+  example: >-
+    pnpm install installs dependencies and records resolutions in pnpm-lock.yaml.
+  caveat: >-
+    Its dependency layout can expose undeclared dependencies. Use the package manager and
+    lockfile expected by the project.
+  related:
+    - npm
+    - package-manager
+    - dependency
+  sources:
+    - title: pnpm — reference and documentation
+      url: https://pnpm.io/motivation
+- id: pull-request
+  term: Pull request
+  aliases:
+    - PR
+    - merge request
+    - MR
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A proposal to review and integrate changes into a project's branch.
+  analogy: >-
+    A polite 'here's my change; please take a look' with a diff attached.
+  example: >-
+    A contributor opens a pull request to add a dictionary entry.
+  caveat: >-
+    A pull request is a hosting-platform workflow, not a core Git command.
+  related:
+    - commit
+    - code-review
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: refactoring
+  term: Refactoring
+  aliases:
+    - code refactoring
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    Restructuring existing code to improve its design while preserving its observable
+    behavior.
+  analogy: >-
+    Reorganizing the kitchen so dinner tastes the same but nobody trips over the toaster.
+  example: >-
+    Extract duplicated validation into a shared function, then verify the same inputs
+    still produce the same results.
+  caveat: >-
+    A feature change or bug fix can accompany refactoring, but changes in behavior should
+    be identified and verified separately.
+  related:
+    - codebase
+    - unit-test
+    - single-responsibility-principle
+  sources:
+    - title: Refactoring — reference and documentation
+      url: https://refactoring.com/
+- id: repository
+  term: Repository
+  aliases:
+    - repo
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A project's version-controlled files and recorded history.
+  analogy: >-
+    The project's home, scrapbook, and organized junk drawer.
+  example: >-
+    A Git repository contains code, documentation, and commits.
+  caveat: >-
+    A repository can live locally without being hosted online.
+  related:
+    - git
+    - branch
+  sources:
+    - title: Pro Git book
+      url: https://git-scm.com/book/en/v2
+- id: shallow-rendering
+  term: Shallow rendering
+  aliases:
+    - shallow render
+    - React shallow rendering
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A testing approach that renders a component's immediate output without fully rendering
+    its child components.
+  analogy: >-
+    Inspecting the restaurant's front counter while replacing the kitchen with cardboard
+    cutouts.
+  example: >-
+    A legacy component test examines that a parent returns a Child element without
+    executing Child's rendering logic.
+  caveat: >-
+    It can miss real interactions and integration behavior. React's legacy test renderer
+    is deprecated; favor user-observable tests with maintained tools.
+  related:
+    - react-component
+    - unit-test
+    - integration-test
+  sources:
+    - title: "React: react-test-renderer Deprecation Warnings"
+      url: https://react.dev/warnings/react-test-renderer
+- id: shell
+  term: Shell
+  aliases:
+    - bash
+    - zsh
+    - command shell
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A program that interprets commands and lets you interact with the operating system.
+  analogy: >-
+    The interpreter between your typed requests and the computer's chores.
+  example: >-
+    Bash can run commands and shell scripts.
+  caveat: >-
+    Quoting rules matter when passing data into commands.
+  related:
+    - cli
+    - operating-system
+  sources:
+    - title: Bash manual
+      url: https://www.gnu.org/software/bash/manual/bash.html
+- id: software-factory
+  term: Software factory
+  aliases:
+    - software factories
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    An organized set of reusable tools, templates, processes, and automation for producing
+    and delivering software consistently.
+  analogy: >-
+    A workshop with repeatable build stations, rather than a wizard manually forging every
+    release at midnight.
+  example: >-
+    A team supplies service templates, automated tests, security checks, and deployment
+    pipelines for new applications.
+  caveat: >-
+    The term has several industry meanings and is not a specific product. It differs from
+    the Factory Pattern, which concerns object creation in code.
+  related:
+    - pipeline
+    - ci
+    - cd
+    - factory-pattern
+  sources:
+    - title: "Microsoft: Web Service Software Factory Modeling Edition"
+      url: https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/launch/service-station-web-service-software-factory-modeling-edition
+- id: test-double
+  term: Test double
+  aliases:
+    - test doubles
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A substitute for a real collaborator used during testing, including dummies, stubs,
+    spies, mocks, and fakes.
+  analogy: >-
+    A stunt double for your database who does not demand a production password.
+  example: >-
+    A fake in-memory repository replaces a database while testing application logic.
+  caveat: >-
+    Different doubles serve different goals. Passing with a substitute does not prove
+    compatibility with the real dependency.
+  related:
+    - mock
+    - unit-test
+    - integration-test
+  sources:
+    - title: Test double — reference and documentation
+      url: https://martinfowler.com/bliki/TestDouble.html
+- id: test-suite
+  term: Test suite
+  aliases:
+    - test suites
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A collection of tests organized to run together for a project, feature, or purpose.
+  analogy: >-
+    A choir of assertions; one off-key result can stop the performance.
+  example: >-
+    A search test suite covers normalization, matching, empty input, and filter
+    combinations.
+  caveat: >-
+    A green suite only covers the behavior it actually checks. Test counts alone do not
+    establish confidence or meaningful coverage.
+  related:
+    - unit-test
+    - integration-test
+    - assertion
+  sources:
+    - title: Test suite — reference and documentation
+      url: https://jestjs.io/docs/api#describename-fn
+- id: transpiler
+  term: Transpiler
+  aliases:
+    - source-to-source compiler
+    - transpilation
+  category: tools
+  level: intermediate
+  tags:
+    - tools
+  definition: >-
+    A compiler that translates source code into another source-language form, often at a
+    similar abstraction level.
+  analogy: >-
+    Rewriting a recipe for a different kitchen without turning it into machine-code soup.
+  example: >-
+    A TypeScript compiler removes type syntax and emits JavaScript for execution.
+  caveat: >-
+    The compiler/transpiler boundary is informal. Transforming syntax does not
+    automatically supply missing runtime features.
+  related:
+    - babel
+    - compiler
+    - javascript
+  sources:
+    - title: "MDN: Transpiler"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Compile
+    - title: "Babel: JavaScript source transformations"
+      url: https://babeljs.io/docs/
+- id: unit-test
+  term: Unit test
+  aliases:
+    - unit testing
+  category: tools
+  level: beginner
+  tags:
+    - tools
+  definition: >-
+    A test focused on a small unit of behavior, with a narrow scope and controlled
+    dependencies.
+  analogy: >-
+    Checking one toaster before blaming the entire breakfast buffet.
+  example: >-
+    Test that normalizeTerm('  React  ') returns 'react' without starting a browser or
+    server.
+  caveat: >-
+    A unit is a useful testing boundary, not necessarily one method. Test behavior rather
+    than private implementation details.
+  related:
+    - integration-test
+    - test-double
+    - assertion
+  sources:
+    - title: Unit test — reference and documentation
+      url: https://martinfowler.com/bliki/UnitTest.html

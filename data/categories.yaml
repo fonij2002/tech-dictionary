@@ -1,0 +1,60 @@
+- id: computer-basics
+  name: Computer basics
+  shortName: Basics
+  description: >-
+    The bits, bytes, and boxes underneath it all.
+  color: teal
+- id: programming
+  name: Programming
+  shortName: Code
+  description: >-
+    How we tell computers what to do.
+  color: blue
+- id: web
+  name: Web development
+  shortName: Web
+  description: >-
+    The ingredients that make websites work.
+  color: purple
+- id: data
+  name: Data & databases
+  shortName: Data
+  description: >-
+    Storing, finding, and making sense of information.
+  color: amber
+- id: ai
+  name: AI & machine learning
+  shortName: AI
+  description: >-
+    Models that learn patterns, and the limits to remember.
+  color: pink
+- id: devops
+  name: Cloud & DevOps
+  shortName: Cloud
+  description: >-
+    Getting software out into the world and keeping it running.
+  color: blue
+- id: security
+  name: Security
+  shortName: Security
+  description: >-
+    Keeping systems, people, and secrets safe.
+  color: pink
+- id: networking
+  name: Networks
+  shortName: Networks
+  description: >-
+    How computers talk across a room or around the world.
+  color: teal
+- id: tools
+  name: Developer tools
+  shortName: Tools
+  description: >-
+    The everyday kit for building together.
+  color: purple
+- id: product
+  name: Product & design
+  shortName: Product
+  description: >-
+    Making things people can actually use.
+  color: amber

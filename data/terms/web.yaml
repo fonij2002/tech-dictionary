@@ -1,0 +1,1517 @@
+# Complete replacement for data/terms/web.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: ajax
+  term: Ajax
+  aliases:
+    - AJAX
+    - Asynchronous JavaScript and XML
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A technique for exchanging data with a server and updating part of a page without a
+    full page reload.
+  analogy: >-
+    Replacing one dish on the table instead of rebuilding the restaurant after every order.
+  example: >-
+    A search field fetches matching terms and updates the result list while the page stays
+    open.
+  caveat: >-
+    Despite the name, Ajax can use JSON rather than XML. It is a technique, not one
+    specific library or transport API.
+  related:
+    - fetch-api
+    - xmlhttprequest
+    - json
+  sources:
+    - title: "MDN: Ajax"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/AJAX
+- id: api
+  term: API
+  aliases:
+    - Application Programming Interface
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A defined way for one piece of software to request capabilities or data from another.
+  analogy: >-
+    A restaurant menu for programs: it tells them what they can order without revealing
+    the kitchen wiring.
+  example: >-
+    GET /api/terms?q=react is one operation in a web API for searching terms.
+  caveat: >-
+    An API need not use HTTP or even a network; a library's exported functions also form
+    an API.
+  related:
+    - endpoint
+    - http
+    - library
+  sources:
+    - title: "MDN: API"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/API
+- id: api-driven-component
+  term: API-driven component
+  aliases:
+    - API driven component
+    - data-driven component
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    A UI component whose displayed data or behavior is supplied through an API, directly
+    or through a data-loading layer.
+  analogy: >-
+    A menu board that checks the kitchen before promising everyone unlimited cake.
+  example: >-
+    A TermList receives API search results and shows loading, success, empty, and error
+    states.
+  caveat: >-
+    This is a descriptive phrase, not a specific React API. Keep networking, cancellation,
+    and presentation boundaries intentional.
+  related:
+    - react-component
+    - api
+    - fetch-api
+    - state-management
+  sources:
+    - title: API-driven component — reference and documentation
+      url: https://react.dev/learn/synchronizing-with-effects#fetching-data
+- id: asset
+  term: Asset
+  aliases:
+    - web asset
+    - static asset
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A resource used by an application, such as an image, stylesheet, script, font, or
+    media file.
+  analogy: >-
+    The website's luggage: some bags contain fonts, others contain a suspiciously large
+    hero image.
+  example: >-
+    A page loads /styles.css, /logo.svg, and /app.js to provide its appearance and
+    behavior.
+  caveat: >-
+    Assets may load through HTML, CSS, or JavaScript, immediately or later. Not every
+    resource is listed in the document's head.
+  related:
+    - html
+    - css
+    - cdn
+  sources:
+    - title: "MDN: Asset"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Performance/What_is_web_performance
+- id: backend
+  term: Backend
+  aliases:
+    - back-end
+    - back end
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    The server-side part of an application that handles work such as business rules, data
+    access, and authorization.
+  analogy: >-
+    The kitchen and stockroom making sure the attractive menu can actually be fulfilled.
+  example: >-
+    A Node.js API verifies permissions, reads a database, and returns matching dictionary
+    entries.
+  caveat: >-
+    A hidden endpoint is not a security boundary. Validate requests and enforce
+    authorization on the server.
+  related:
+    - frontend
+    - server
+    - database
+  sources:
+    - title: "MDN: Backend"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction
+- id: callback-prop
+  term: Callback prop
+  aliases:
+    - prop-function
+    - function prop
+    - prop function
+    - callback props
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A function passed as a React prop so a child can notify its parent or request an
+    action.
+  analogy: >-
+    Giving a child component a doorbell instead of the keys to your entire state cupboard.
+  example: >-
+    <SaveButton onSave={saveDraft} /> lets SaveButton call onSave() after a click.
+  caveat: >-
+    Pass the function itself unless you intentionally want to call it during rendering.
+    Name callbacks for the event or action they represent.
+  related:
+    - props
+    - callback
+    - one-way-data-flow
+  sources:
+    - title: Callback prop — reference and documentation
+      url: https://react.dev/learn/responding-to-events
+- id: child-component
+  term: Child component
+  aliases:
+    - React child component
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A component rendered directly inside another component in the UI tree, often receiving
+    data or callbacks through props.
+  analogy: >-
+    The guest who gets a place at the table and occasionally calls the host for more
+    snacks.
+  example: >-
+    In <Page><Avatar /></Page>, Avatar is passed as a child; Page must render its children
+    to display it.
+  caveat: >-
+    Not every nested HTML node is a React component. A child should not mutate props
+    received from its parent.
+  related:
+    - parent-component
+    - props
+    - callback-prop
+  sources:
+    - title: Child component — reference and documentation
+      url: https://react.dev/learn/passing-props-to-a-component
+- id: content-type
+  term: Content-Type
+  aliases:
+    - Content-Type header
+    - media type header
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    An HTTP header that identifies the media type of the associated request or response
+    body.
+  analogy: >-
+    The label saying whether the parcel contains JSON soup, HTML sandwiches, or an image
+    of a sandwich.
+  example: >-
+    Content-Type: application/json declares that the message body contains JSON data.
+  caveat: >-
+    It describes the body, not the desired response format. When using browser FormData,
+    let the browser supply the multipart boundary.
+  related:
+    - request-header
+    - json
+    - http
+  sources:
+    - title: "MDN: Content-Type"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Type
+- id: cookie
+  term: Cookie
+  aliases:
+    - browser cookie
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A small piece of data a browser stores for a site and may send with matching requests.
+  analogy: >-
+    A little note the website asks your browser to carry on future visits.
+  example: >-
+    A session cookie can identify a logged-in session.
+  caveat: >-
+    Cookies have scope and security settings; they are not inherently secret.
+  related:
+    - session
+    - csrf
+  sources:
+    - title: MDN web documentation
+      url: https://developer.mozilla.org/en-US/docs/Web
+- id: cors
+  term: CORS
+  aliases:
+    - cross-origin resource sharing
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    Browser-enforced rules that let a server indicate which other origins may read its
+    responses.
+  analogy: >-
+    A browser checking the guest list before handing a page another site's data.
+  example: >-
+    An API can permit a frontend on a different origin to read a response.
+  caveat: >-
+    CORS is not authentication and does not block every kind of request.
+  related:
+    - api
+    - http
+  sources:
+    - title: "MDN: CORS"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+- id: css
+  term: CSS
+  aliases:
+    - Cascading Style Sheets
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    The stylesheet language used to control the presentation and layout of HTML and other
+    supported documents.
+  analogy: >-
+    The interior designer who can also move every sofa when the screen gets smaller.
+  example: >-
+    .term-card { padding: 1rem; border-radius: 0.75rem; } styles dictionary cards.
+  caveat: >-
+    The cascade decides which declarations win; source order alone does not explain every
+    conflict.
+  related:
+    - html
+    - css-selector
+    - responsive-design
+  sources:
+    - title: "MDN: CSS"
+      url: https://developer.mozilla.org/en-US/docs/Web/CSS
+- id: css-selector
+  term: CSS selector
+  aliases:
+    - CSS selectors
+    - selector
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A pattern that identifies which document elements a CSS rule should apply to.
+  analogy: >-
+    An address label for styling: deliver these colors to this class, not the entire
+    neighborhood.
+  example: >-
+    .term-card > h2 selects h2 elements that are direct children of elements with class
+    term-card.
+  caveat: >-
+    Specificity influences the cascade, but cascade layers, origin, and importance also
+    matter. A selector alone does not define styling.
+  related:
+    - css
+    - dom
+    - html
+  sources:
+    - title: "MDN: CSS selector"
+      url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors
+- id: div
+  term: div
+  aliases:
+    - div element
+    - division element
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A generic HTML container with no special semantic meaning, used to group content for
+    styling or scripting.
+  analogy: >-
+    A plain cardboard box: useful, but it does not become a button because you draw a
+    finger on it.
+  example: >-
+    <div class="term-grid">...</div> groups entries for a grid layout.
+  caveat: >-
+    Prefer meaningful elements such as main, nav, or button when their semantics fit. A
+    clickable div needs extra keyboard and accessibility work.
+  related:
+    - html
+    - semantic-html
+    - css
+  sources:
+    - title: "MDN: div"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div
+- id: dom
+  term: DOM
+  aliases:
+    - Document Object Model
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    The browser's object representation of a document, with nodes that scripts can inspect
+    and change.
+  analogy: >-
+    The page's family tree, where even a text node gets a seat at the reunion.
+  example: >-
+    document.querySelector('h1').textContent = 'Hello'; changes a heading in the document.
+  caveat: >-
+    The DOM is an interface to the document, not the original HTML text or React's virtual
+    representation; XML documents can have a DOM too.
+  related:
+    - html
+    - javascript
+    - virtual-dom
+  sources:
+    - title: "MDN: DOM"
+      url: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+- id: endpoint
+  term: Endpoint
+  aliases:
+    - API endpoint
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    An addressable point where an API offers an operation; in HTTP APIs it is commonly
+    identified by a method and URL.
+  analogy: >-
+    A specific service counter, not the entire shopping mall.
+  example: >-
+    GET /api/terms retrieves terms, while POST /api/terms can create one at the same path.
+  caveat: >-
+    A URL alone may not identify the operation: methods, headers, versions, and
+    authentication can change its meaning.
+  related:
+    - api
+    - http
+    - get-request
+    - post-request
+  sources:
+    - title: Endpoint — reference and documentation
+      url: https://spec.openapis.org/oas/latest.html#paths-object
+- id: fetch-api
+  term: Fetch API
+  aliases:
+    - fetch
+    - window.fetch
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A browser API, also available in some other runtimes, for making requests and handling
+    responses using promises.
+  analogy: >-
+    A digital courier who returns a delivery receipt, even when the parcel contains a 404
+    complaint.
+  example: >-
+    const response = await fetch('/api/terms'); if (!response.ok) throw new Error('Request
+    failed'); const terms = await response.json();
+  caveat: >-
+    fetch normally rejects on network failures, not HTTP error statuses. Check
+    response.ok; browser cross-origin requests also follow CORS rules.
+  related:
+    - promise
+    - http
+    - xmlhttprequest
+    - async-function
+  sources:
+    - title: "MDN: Fetch API"
+      url: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+- id: flux
+  term: Flux
+  aliases:
+    - Flux architecture
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    An application architecture associated with React that organizes updates through a
+    one-way cycle of actions, a dispatcher, stores, and views.
+  analogy: >-
+    A roundabout for application updates, with fewer opportunities for data to drive into
+    oncoming traffic.
+  example: >-
+    A user action is dispatched, a store updates, and subscribed views render the new
+    state.
+  caveat: >-
+    Flux is an architectural pattern, not React itself or a requirement for using React.
+    Redux adopts related ideas but has a different design.
+  related:
+    - redux
+    - one-way-data-flow
+    - state-management
+  sources:
+    - title: Flux — reference and documentation
+      url: https://facebookarchive.github.io/flux/docs/in-depth-overview/
+- id: framework
+  term: Framework
+  aliases:
+    - software framework
+    - application framework
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A reusable structure that supplies conventions and coordinates parts of an
+    application, calling your code at defined points.
+  analogy: >-
+    A building kit with a floor plan and a foreman who decides when to call each trade.
+  example: >-
+    A web framework routes incoming requests to handlers and runs middleware around them.
+  caveat: >-
+    Framework and library are not perfectly separated categories. Understand what the
+    framework controls and what remains your responsibility.
+  related:
+    - library
+    - api
+    - boilerplate
+  sources:
+    - title: "MDN: Framework"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks
+- id: frontend
+  term: Frontend
+  aliases:
+    - front-end
+    - front end
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    The part of an application users interact with, including its interface and
+    client-side behavior.
+  analogy: >-
+    The restaurant's dining room, where broken buttons are as noticeable as wobbly chairs.
+  example: >-
+    A React page displays terms, filters search results, and submits feedback to an API.
+  caveat: >-
+    Frontend work includes accessibility, performance, and data handling. Server rendering
+    means its code is not always executed only in a browser.
+  related:
+    - backend
+    - react
+    - client
+  sources:
+    - title: "MDN: Frontend"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model
+- id: get-request
+  term: GET request
+  aliases:
+    - HTTP GET
+    - GET
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    An HTTP request asking for a representation of a resource, such as a page or
+    collection of terms.
+  analogy: >-
+    Looking at the menu should not silently place an order for twelve pizzas.
+  example: >-
+    GET /api/terms?q=react requests matching entries without asking the server to change
+    them.
+  caveat: >-
+    GET is defined as safe and idempotent, not side-effect-free internally. Avoid
+    state-changing operations and secrets in URLs; caching is not unconditional.
+  related:
+    - http
+    - post-request
+    - endpoint
+  sources:
+    - title: "MDN: GET request"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/GET
+- id: html
+  term: HTML
+  aliases:
+    - HyperText Markup Language
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    The markup language that describes the structure and meaning of web content using
+    elements such as headings, links, and forms.
+  analogy: >-
+    The building's labeled rooms before CSS chooses the wallpaper.
+  example: >-
+    <button type="button">Search</button> marks up a native button.
+  caveat: >-
+    HTML describes structure and semantics; use CSS for presentation and JavaScript for
+    additional behavior. Native elements often provide useful accessibility behavior.
+  related:
+    - css
+    - javascript
+    - semantic-html
+  sources:
+    - title: "MDN: HTML"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTML
+- id: http
+  term: HTTP
+  aliases:
+    - Hypertext Transfer Protocol
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    An application-level request-response protocol used to exchange representations and
+    metadata between clients and servers.
+  analogy: >-
+    The agreed conversation format that stops browsers and servers from communicating
+    entirely through awkward waving.
+  example: >-
+    A browser sends GET /terms; the server replies with a status code, headers, and a
+    response body.
+  caveat: >-
+    Plain HTTP does not encrypt traffic. HTTPS protects HTTP with TLS; stateless protocol
+    semantics do not mean applications cannot maintain sessions.
+  related:
+    - https
+    - request-header
+    - content-type
+    - client
+  sources:
+    - title: "RFC 9110: HTTP Semantics"
+      url: https://www.rfc-editor.org/rfc/rfc9110
+- id: https
+  term: HTTPS
+  aliases:
+    - HTTP secure
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    HTTP carried over a connection protected by TLS.
+  analogy: >-
+    HTTP wearing a locked, tamper-evident envelope.
+  example: >-
+    An https:// address uses encrypted transport when the connection is valid.
+  caveat: >-
+    HTTPS does not guarantee a site's content or business is trustworthy.
+  related:
+    - http
+    - tls
+  sources:
+    - title: MDN web documentation
+      url: https://developer.mozilla.org/en-US/docs/Web
+- id: initial-state
+  term: Initial state
+  aliases:
+    - starting state
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    The state value an application or component starts with before its later updates.
+  analogy: >-
+    The board game's setup before someone immediately disputes the rules.
+  example: >-
+    const [count, setCount] = useState(0); starts count at 0.
+  caveat: >-
+    React uses the initial useState value on the initial render, not to reset state
+    whenever props change. Initializer functions should be pure.
+  related:
+    - state-management
+    - react-component
+    - mutation
+  sources:
+    - title: Initial state — reference and documentation
+      url: https://react.dev/reference/react/useState
+- id: javascript
+  term: JavaScript
+  aliases:
+    - JS
+    - ECMAScript
+  category: web
+  level: beginner
+  tags:
+    - web
+    - javascript
+  definition: >-
+    A programming language used for web interactions and many server, desktop, and tooling
+    tasks.
+  analogy: >-
+    The page's backstage crew, turning decorative buttons into buttons that actually do
+    things.
+  example: >-
+    document.querySelector('button').addEventListener('click', () => alert('Hi'));
+  caveat: >-
+    JavaScript is not Java. Browser APIs and Node.js APIs come from their environments
+    rather than the language alone.
+  related:
+    - html
+    - node-js
+    - es6
+  sources:
+    - title: "MDN: JavaScript"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- id: jquery
+  term: jQuery
+  aliases:
+    - jQuery library
+  category: web
+  level: beginner
+  tags:
+    - web
+    - javascript
+  definition: >-
+    A JavaScript library that offers concise DOM selection, manipulation, events, and Ajax
+    utilities.
+  analogy: >-
+    A well-traveled multitool from the era when browsers could not agree on how to open a
+    drawer.
+  example: >-
+    $('button').on('click', () => $('.message').text('Hello')); attaches an event handler.
+  caveat: >-
+    Many tasks now have convenient native browser APIs. Avoid changing React-managed DOM
+    with jQuery without a clear integration boundary.
+  related:
+    - dom
+    - ajax
+    - library
+  sources:
+    - title: jQuery — reference and documentation
+      url: https://api.jquery.com/
+- id: json
+  term: JSON
+  aliases:
+    - JavaScript Object Notation
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A text format for structured data using objects, arrays, strings, numbers, booleans,
+    and null.
+  analogy: >-
+    A tidy packing list for data, with a strict ban on comments and trailing-comma
+    freeloaders.
+  example: >-
+    {"name":"Ada","skills":["React","Node.js"]} is JSON text that JSON.parse can turn into
+    JavaScript data.
+  caveat: >-
+    JSON is not a JavaScript object. It cannot directly represent functions, undefined, or
+    cyclic references, and object keys require double quotes.
+  related:
+    - stringify
+    - serialization
+    - object
+  sources:
+    - title: "MDN: JSON"
+      url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+- id: jsx
+  term: JSX
+  aliases:
+    - JavaScript XML
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A JavaScript syntax extension for describing UI with HTML-like markup that tooling
+    transforms into JavaScript element creation.
+  analogy: >-
+    HTML's familiar outfit worn by JavaScript, with slightly different pockets.
+  example: >-
+    const heading = <h1 className="title">Hello</h1>; describes an element for React to
+    render.
+  caveat: >-
+    JSX is not an HTML string and browsers do not generally execute it directly. Its rules
+    include className and explicitly closed tags.
+  related:
+    - react-component
+    - babel
+    - dom
+  sources:
+    - title: JSX — reference and documentation
+      url: https://react.dev/learn/writing-markup-with-jsx
+- id: leaf-component
+  term: Leaf component
+  aliases:
+    - leaf components
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    A component at the end of a component hierarchy that does not render other custom
+    components below it.
+  analogy: >-
+    The family-tree cousin who brings no plus-ones to the component reunion.
+  example: >-
+    A PriceLabel component that returns only <span>$10</span> can be a leaf in the
+    component tree.
+  caveat: >-
+    Leaf depends on which tree you mean: DOM nodes, rendered components, and React's
+    ownership relationships are not identical.
+  related:
+    - react-component
+    - child-component
+    - virtual-dom-tree
+  sources:
+    - title: Leaf component — reference and documentation
+      url: https://react.dev/learn/understanding-your-ui-as-a-tree
+- id: library
+  term: Library
+  aliases:
+    - software library
+    - code library
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    Reusable code that an application calls to perform particular tasks through a defined
+    interface.
+  analogy: >-
+    A toolbox you pick tools from, rather than a foreman deciding your entire workday.
+  example: >-
+    A date-formatting library turns a timestamp into a readable label without supplying
+    your whole application structure.
+  caveat: >-
+    The line between a library and framework can blur. Dependencies still bring
+    maintenance, compatibility, and security responsibilities.
+  related:
+    - framework
+    - api
+    - dependency
+  sources:
+    - title: "MDN: Library"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries
+- id: mount
+  term: Mount
+  aliases:
+    - mounting
+    - component mount
+    - unmount
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    The lifecycle event when a component is added to the rendered UI tree; unmounting
+    removes it.
+  analogy: >-
+    A performer entering the stage, not merely changing their hat during the same scene.
+  example: >-
+    Conditionally rendering <SearchPanel /> mounts it when shown and unmounts it when
+    removed.
+  caveat: >-
+    A re-render is not a remount. Effects and cleanup have their own timing; development
+    Strict Mode can replay setup and cleanup to expose problems.
+  related:
+    - react-component
+    - initial-state
+    - virtual-dom
+  sources:
+    - title: Mount — reference and documentation
+      url: https://react.dev/learn/lifecycle-of-reactive-effects
+- id: nested-component
+  term: Nested component
+  aliases:
+    - component nesting
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A component rendered somewhere inside another component's output, forming a deeper UI
+    hierarchy.
+  analogy: >-
+    A set of nesting dolls, except each doll can receive props and complain about missing
+    keys.
+  example: >-
+    App renders Layout, which renders Sidebar, which renders a SearchBox component.
+  caveat: >-
+    Rendering components inside other components is normal. Defining a component function
+    inside a parent can create a new type each render and reset state.
+  related:
+    - parent-component
+    - child-component
+    - react-component
+  sources:
+    - title: Nested component — reference and documentation
+      url: https://react.dev/learn/preserving-and-resetting-state
+- id: one-way-data-flow
+  term: One-way data flow
+  aliases:
+    - unidirectional data flow
+    - one way data flow
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    An approach where state flows toward the UI, while events request updates through a
+    defined path.
+  analogy: >-
+    A one-way street for data, with event buses reporting back to the traffic controller.
+  example: >-
+    A parent passes count and onIncrement; the child calls onIncrement and receives the
+    updated count on the next render.
+  caveat: >-
+    Callbacks can send events upward without allowing a child to edit its parent's state
+    directly.
+  related:
+    - props
+    - callback-prop
+    - state-management
+    - flux
+  sources:
+    - title: One-way data flow — reference and documentation
+      url: https://react.dev/learn/sharing-state-between-components
+- id: optimistic-update
+  term: Optimistic updating
+  aliases:
+    - optimistic update
+    - optimistic UI
+    - optimistic updates
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    Updating the visible client state before a server operation is confirmed, then
+    reconciling with the actual result.
+  analogy: >-
+    Marking your parcel as packed before the courier agrees to carry it; keep the undo
+    tape handy.
+  example: >-
+    Show a new comment immediately as pending, then replace it with the saved comment or
+    remove it if the request fails.
+  caveat: >-
+    Plan for rejection, retries, conflicts, and duplicate submissions. The server remains
+    authoritative for persisted data and permissions.
+  related:
+    - state-management
+    - api
+    - mutation
+  sources:
+    - title: Optimistic updating — reference and documentation
+      url: https://react.dev/reference/react/useOptimistic
+- id: parent-component
+  term: Parent component
+  aliases:
+    - React parent component
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A component that renders another component below it in the UI tree.
+  analogy: >-
+    The dinner host who sets the table and passes props instead of the salt.
+  example: >-
+    function Page() { return <Greeting name="Ada" />; } makes Page the parent of Greeting.
+  caveat: >-
+    Parent and child describe a rendering relationship, not class inheritance. The same
+    component type can have different parents in different places.
+  related:
+    - child-component
+    - props
+    - react-component
+  sources:
+    - title: Parent component — reference and documentation
+      url: https://react.dev/learn/understanding-your-ui-as-a-tree
+- id: post-request
+  term: POST request
+  aliases:
+    - POST
+    - HTTP POST
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    An HTTP request asking a resource to process the supplied content according to that
+    resource's rules.
+  analogy: >-
+    Handing a form to the service desk and asking them to do something with it.
+  example: >-
+    POST /api/terms with a JSON body can request creation of a dictionary entry.
+  caveat: >-
+    POST is not limited to creation, not automatically idempotent, and not encrypted
+    without HTTPS. Validate content and permissions server-side.
+  related:
+    - http
+    - get-request
+    - content-type
+  sources:
+    - title: "MDN: POST request"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/POST
+- id: props
+  term: Props
+  aliases:
+    - React props
+    - properties
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    Read-only inputs a React component receives, including values, objects, functions, or
+    JSX.
+  analogy: >-
+    A component's delivery package: use the contents, but do not rewrite the sender's
+    order.
+  example: >-
+    <Avatar name="Ada" size={48} /> passes name and size to Avatar.
+  caveat: >-
+    Props are snapshots for a render. A parent may pass new props later, but the receiving
+    component must not mutate them or their nested objects.
+  related:
+    - react-component
+    - callback-prop
+    - one-way-data-flow
+  sources:
+    - title: Props — reference and documentation
+      url: https://react.dev/learn/passing-props-to-a-component
+- id: react-component
+  term: React component
+  aliases:
+    - function component
+    - React components
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A reusable unit of React UI, usually a function that receives props and returns a
+    description of what to render.
+  analogy: >-
+    A small kitchen station: make one dish well instead of running the entire restaurant.
+  example: >-
+    function Greeting({ name }) { return <h1>Hello, {name}</h1>; }
+  caveat: >-
+    A focused responsibility is a design goal, not a one-element rule. Keep rendering pure
+    and use an uppercase component name in JSX.
+  related:
+    - ui-component
+    - props
+    - jsx
+    - single-responsibility-principle
+  sources:
+    - title: React component — reference and documentation
+      url: https://react.dev/learn/your-first-component
+- id: react
+  term: React.js
+  aliases:
+    - React
+    - ReactJS
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A JavaScript library for building user interfaces from components and updating them as
+    data changes.
+  analogy: >-
+    A stage manager that helps your interface follow the script when the cast's mood
+    changes.
+  example: >-
+    A React search component updates its results when the user changes the search query.
+  caveat: >-
+    React is a library, not a complete application architecture. Routing, data loading,
+    and deployment depend on additional choices.
+  related:
+    - react-component
+    - jsx
+    - state-management
+  sources:
+    - title: React.js — reference and documentation
+      url: https://react.dev/
+- id: redux
+  term: Redux
+  aliases:
+    - Redux store
+    - Redux Toolkit
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    A JavaScript state-management library where dispatched actions describe events and
+    reducers calculate state updates in a store.
+  analogy: >-
+    A central logbook where updates file paperwork before changing the scoreboard.
+  example: >-
+    store.dispatch({ type: 'counter/incremented' }); asks the store to process an action.
+  caveat: >-
+    Redux is not required for every React app. Redux Toolkit is the standard approach; its
+    Immer-powered reducers allow mutation-like syntax without mutating previous state.
+  related:
+    - reducer
+    - flux
+    - state-management
+    - immutable
+  sources:
+    - title: Redux — reference and documentation
+      url: https://redux.js.org/introduction/why-rtk-is-redux-today
+- id: request-header
+  term: Request header
+  aliases:
+    - HTTP request header
+    - request headers
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    An HTTP header field sent by a client to provide metadata or preferences for a request.
+  analogy: >-
+    The notes attached to a food order: desired format, credentials, and please do not
+    bring extra mystery sauce.
+  example: >-
+    Accept: application/json tells a server which response format the client prefers.
+  caveat: >-
+    Content-Type describes the request body's format, while Accept describes preferred
+    response formats. Browsers control some headers and CORS can restrict others.
+  related:
+    - http
+    - content-type
+    - cors
+  sources:
+    - title: "MDN: Request header"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Request_header
+- id: responsive-design
+  term: Responsive design
+  aliases:
+    - responsive
+    - responsive web design
+    - RWD
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    Designing an interface to adapt to different screen sizes, input methods, and viewing
+    conditions.
+  analogy: >-
+    A layout that changes clothes for the occasion instead of squeezing a desktop suit
+    onto a phone.
+  example: >-
+    A three-column term grid becomes one column on a narrow screen using CSS grid and
+    media queries.
+  caveat: >-
+    Shrinking everything is not enough. Check readable text, touch targets, content order,
+    and actual devices.
+  related:
+    - css
+    - ui
+    - accessibility
+  sources:
+    - title: "MDN: Responsive design"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
+- id: rest
+  term: REST
+  aliases:
+    - representational state transfer
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    An architectural style for distributed systems built around constraints such as
+    statelessness and a uniform interface.
+  analogy: >-
+    Organizing a library so everyone uses the same borrowing rules.
+  example: >-
+    A resource-oriented HTTP API may expose /books and /books/42.
+  caveat: >-
+    Using JSON over HTTP alone does not make an API RESTful.
+  related:
+    - api
+    - http
+  sources:
+    - title: MDN web documentation
+      url: https://developer.mozilla.org/en-US/docs/Web
+- id: ssr
+  term: Server-side rendering
+  aliases:
+    - SSR
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    Generating a page's HTML on the server before sending it to the browser.
+  analogy: >-
+    Serving the meal already plated instead of shipping a box of ingredients.
+  example: >-
+    A server renders a product page with its title already in the HTML.
+  caveat: >-
+    SSR can still use client-side JavaScript afterward.
+  related:
+    - static-site
+    - frontend
+  sources:
+    - title: MDN web documentation
+      url: https://developer.mozilla.org/en-US/docs/Web
+- id: session
+  term: Session
+  aliases:
+    - user session
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    A way to maintain continuity or state across several interactions.
+  analogy: >-
+    A claim ticket that lets a service remember which visit is yours.
+  example: >-
+    A server can associate a session identifier with a signed-in user.
+  caveat: >-
+    Sessions can expire; their identifiers need protection.
+  related:
+    - cookie
+    - authentication
+  sources:
+    - title: MDN web documentation
+      url: https://developer.mozilla.org/en-US/docs/Web
+- id: single-page-application
+  term: Single-page application
+  aliases:
+    - SPA
+    - SPAs
+    - single page application
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    A web application that handles much of its navigation by updating the current document
+    through JavaScript instead of loading a new document for every view.
+  analogy: >-
+    Renovating the room around you instead of making you leave the building for every new
+    screen.
+  example: >-
+    A client router changes from /terms to /terms/react and updates the view without a
+    full document navigation.
+  caveat: >-
+    The first page can be server-rendered. Deep links, history, accessibility, and SEO
+    still need deliberate handling; API requests may continue throughout use.
+  related:
+    - web-application
+    - navigation
+    - ssr
+  sources:
+    - title: "MDN: Single-page application"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/SPA
+- id: state-management
+  term: State management
+  aliases:
+    - application state management
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    Organizing changing application data, where it lives, how it updates, and which parts
+    of the UI depend on it.
+  analogy: >-
+    Keeping one sensible scoreboard instead of asking every player to remember a different
+    score.
+  example: >-
+    Keep a search query in local state and share selected filters through their nearest
+    common parent.
+  caveat: >-
+    Not every value belongs in a global store. Derived data and cached server data have
+    different needs from local interactive state.
+  related:
+    - initial-state
+    - redux
+    - one-way-data-flow
+  sources:
+    - title: State management — reference and documentation
+      url: https://react.dev/learn/managing-state
+- id: static-site
+  term: Static site
+  aliases:
+    - static website
+    - SSG
+    - static site generation
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A website served from prebuilt files instead of generating each page on demand.
+  analogy: >-
+    A prepared picnic: open the basket and everything is already there.
+  example: >-
+    GitHub Pages can host prebuilt HTML, CSS, and JavaScript.
+  caveat: >-
+    A static site can still have interactive client-side features.
+  related:
+    - ssr
+    - github-pages
+  sources:
+    - title: MDN web documentation
+      url: https://developer.mozilla.org/en-US/docs/Web
+- id: ui-component
+  term: UI component
+  aliases:
+    - user interface component
+  category: web
+  level: beginner
+  tags:
+    - web
+    - react
+  definition: >-
+    A reusable piece of a user interface with a defined purpose, such as a button, date
+    picker, or navigation menu.
+  analogy: >-
+    A LEGO brick with a job description and hopefully no surprise sharp edges.
+  example: >-
+    The same SearchBox component can appear on a dictionary homepage and a documentation
+    page.
+  caveat: >-
+    A UI component need not use React. Keep its inputs, behavior, and accessibility clear
+    instead of splitting everything into tiny pieces.
+  related:
+    - react-component
+    - ui
+    - accessibility
+  sources:
+    - title: UI component — reference and documentation
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/Introduction
+- id: virtual-dom
+  term: Virtual DOM
+  aliases:
+    - VDOM
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    An in-memory description of a UI used to help a renderer determine which changes to
+    apply to the actual interface.
+  analogy: >-
+    A stage plan the crew compares before moving real furniture around.
+  example: >-
+    After state changes, React computes the next UI description and commits necessary
+    changes to the browser DOM.
+  caveat: >-
+    It is not a second browser DOM or a guaranteed performance win. React rendering,
+    reconciliation, and DOM commits are distinct steps.
+  related:
+    - virtual-dom-tree
+    - dom
+    - react
+  sources:
+    - title: Virtual DOM — reference and documentation
+      url: https://legacy.reactjs.org/docs/faq-internals.html
+- id: virtual-dom-tree
+  term: Virtual DOM tree
+  aliases:
+    - virtual tree
+    - virtual element tree
+  category: web
+  level: intermediate
+  tags:
+    - web
+    - react
+  definition: >-
+    The hierarchical arrangement of a UI's in-memory element descriptions, reflecting how
+    elements are nested.
+  analogy: >-
+    The seating chart for an imaginary theatre, before anyone moves the real chairs.
+  example: >-
+    A description of a section can contain a heading and a list whose children describe
+    individual terms.
+  caveat: >-
+    The element tree, component tree, actual DOM tree, and React's internal Fiber
+    structures are related but not identical.
+  related:
+    - virtual-dom
+    - react-component
+    - dom
+  sources:
+    - title: Virtual DOM tree — reference and documentation
+      url: https://react.dev/learn/understanding-your-ui-as-a-tree
+- id: web-application
+  term: Web application
+  aliases:
+    - webapp
+    - web app
+    - web application
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    Software accessed through web technologies that lets users perform tasks and interact
+    with data.
+  analogy: >-
+    A website that gives you a desk and tools instead of only a brochure.
+  example: >-
+    An online issue tracker lets users create tickets, assign owners, and update status in
+    a browser.
+  caveat: >-
+    A web application need not be a single-page application. It can use server-rendered
+    pages, client rendering, or a combination.
+  related:
+    - website
+    - single-page-application
+    - frontend
+    - backend
+  sources:
+    - title: "MDN: Express/Node introduction and web applications"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction
+- id: scraping
+  term: Web scraping
+  aliases:
+    - scraping
+    - web scraper
+    - web data extraction
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    Programmatically extracting information from web pages, often by fetching and parsing
+    their content.
+  analogy: >-
+    A very literal assistant copying the menu into a spreadsheet, including any typos the
+    chef insists are intentional.
+  example: >-
+    A script downloads a permitted documentation page and extracts its headings using an
+    HTML parser.
+  caveat: >-
+    Page structures change, and client-rendered content may need different handling.
+    Respect access rules, usage terms, and rate limits; an available API is often more
+    stable.
+  related:
+    - html
+    - dom
+    - api
+  sources:
+    - title: Web scraping — reference and documentation
+      url: https://docs.scrapy.org/en/latest/intro/overview.html
+- id: website
+  term: Website
+  aliases:
+    - web site
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A collection of related web pages and resources presented under a shared site identity.
+  analogy: >-
+    A digital address with rooms for articles, products, and the inevitable contact form.
+  example: >-
+    A documentation website includes a homepage, guides, reference pages, and a search
+    tool.
+  caveat: >-
+    A website can include interactive applications. Website and web application are
+    overlapping descriptions, not strict technical opposites.
+  related:
+    - web-application
+    - html
+    - static-site
+  sources:
+    - title: "MDN: Browsing the web"
+      url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web
+- id: websocket
+  term: WebSocket
+  aliases:
+    - web sockets
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    A protocol for ongoing, two-way communication over a connection.
+  analogy: >-
+    A phone call between browser and server, instead of mailing a new letter every time.
+  example: >-
+    A chat app can receive new messages over a WebSocket.
+  caveat: >-
+    Connections can drop and may need reconnection logic.
+  related:
+    - http
+    - tcp
+  sources:
+    - title: "MDN: WebSocket"
+      url: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
+- id: xml
+  term: XML
+  aliases:
+    - Extensible Markup Language
+  category: web
+  level: beginner
+  tags:
+    - web
+  definition: >-
+    A text markup language for representing structured information with nested elements,
+    attributes, and application-defined tags.
+  analogy: >-
+    A labeling machine so enthusiastic it labels both the opening and closing of every box.
+  example: >-
+    <term id="api"><name>API</name></term> represents a small structured record.
+  caveat: >-
+    XML is not HTML and does not prescribe one set of application tags. Parsing external
+    XML requires attention to parser configuration and untrusted input.
+  related:
+    - html
+    - json
+    - dom
+  sources:
+    - title: XML — reference and documentation
+      url: https://www.w3.org/XML/
+- id: xmlhttprequest
+  term: XMLHttpRequest
+  aliases:
+    - XHR
+  category: web
+  level: intermediate
+  tags:
+    - web
+  definition: >-
+    A browser API for making HTTP requests and receiving responses through events, widely
+    used before Fetch became common.
+  analogy: >-
+    The veteran courier with a longer form to fill out and a perfectly usable delivery van.
+  example: >-
+    const xhr = new XMLHttpRequest(); xhr.open('GET', '/api/terms'); xhr.onload = () =>
+    console.log(xhr.responseText); xhr.send();
+  caveat: >-
+    It can receive JSON and other formats, not only XML. Asynchronous XHR is still
+    supported; avoid synchronous requests on the main thread.
+  related:
+    - fetch-api
+    - ajax
+    - http
+  sources:
+    - title: "MDN: XMLHttpRequest"
+      url: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest

@@ -1,0 +1,288 @@
+# Complete replacement for data/terms/product.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: ab-test
+  term: A/B test
+  aliases:
+    - split test
+    - experimentation
+  category: product
+  level: intermediate
+  tags:
+    - product
+  definition: >-
+    An experiment that compares randomly assigned groups exposed to different variants.
+  analogy: >-
+    Two versions entering a fair contest, with users rather than opinions keeping score.
+  example: >-
+    An experiment compares two onboarding flows on completion rate.
+  caveat: >-
+    Valid conclusions need an appropriate design, sample, and analysis.
+  related:
+    - iteration
+    - kpi
+  sources:
+    - title: "GOV.UK: User research in live"
+      url: https://www.gov.uk/service-manual/user-research/user-research-in-live
+- id: accessibility
+  term: Accessibility
+  aliases:
+    - a11y
+    - accessible design
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    Designing and building so people with diverse abilities can perceive and use a product.
+  analogy: >-
+    Making the front door usable for more people, instead of offering a mysterious side
+    quest.
+  example: >-
+    Keyboard users should be able to reach and operate every search control.
+  caveat: >-
+    Accessibility is ongoing work across content, design, and implementation.
+  related:
+    - ui
+    - semantic-html
+  sources:
+    - title: W3C accessibility fundamentals
+      url: https://www.w3.org/WAI/fundamentals/accessibility-intro/
+- id: forward-deployed-engineer
+  term: Forward deployed engineer
+  aliases:
+    - FDE
+    - forward deployed software engineer
+    - FDSE
+  category: product
+  level: intermediate
+  tags:
+    - engineering
+    - customer-facing
+    - implementation
+    - production
+    - ai
+  definition: >-
+    A customer-facing engineer who works closely with customer teams to adapt, integrate,
+    and deploy a company's technology into useful production workflows.
+  analogy: >-
+    Instead of delivering a fancy coffee machine and waving goodbye, you help the cafe
+    connect it, survive the morning rush, and tell the manufacturer what needs fixing.
+  example: >-
+    An FDE from an AI company builds and deploys an internal support assistant connected
+    to a customer's systems, then checks whether staff actually use it.
+  caveat: >-
+    The balance of implementation, product development, and customer interaction varies by
+    employer. The role also exists outside AI companies.
+  related:
+    - api
+    - iteration
+    - llm
+  sources:
+    - title: "OpenAI: Forward Deployed Engineer role and responsibilities"
+      url: https://openai.com/careers/forward-deployed-engineer-(fde)-seattle-seattle/
+- id: iteration
+  term: Iteration
+  aliases:
+    - iterate
+    - feedback loop
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    A repeated cycle of trying, learning, and improving.
+  analogy: >-
+    Build a little, learn a little, stop defending the first pancake.
+  example: >-
+    A team refines search after seeing which queries return no results.
+  caveat: >-
+    Repeated changes are useful when they are guided by evidence.
+  related:
+    - mvp
+    - ab-test
+  sources:
+    - title: "GOV.UK: Agile delivery"
+      url: https://www.gov.uk/service-manual/agile-delivery
+- id: kpi
+  term: KPI
+  aliases:
+    - key performance indicator
+  category: product
+  level: intermediate
+  tags:
+    - product
+  definition: >-
+    A chosen measure used to track progress toward an important objective.
+  analogy: >-
+    The dashboard gauge that matters, not every number the engine can produce.
+  example: >-
+    A dictionary might track the proportion of searches that find a useful entry.
+  caveat: >-
+    A metric is not automatically a good target.
+  related:
+    - ab-test
+    - mvp
+  sources:
+    - title: "GOV.UK: Measuring success"
+      url: https://www.gov.uk/service-manual/measuring-success
+- id: mvp
+  term: Minimum viable product
+  aliases:
+    - MVP
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    The smallest product experiment that can test an important assumption with real users.
+  analogy: >-
+    A useful first bicycle, not half a wheel and a motivational poster.
+  example: >-
+    A recipe app tests demand with saving and viewing a small recipe collection.
+  caveat: >-
+    Minimum scope still needs enough quality and value for the intended test.
+  related:
+    - prototype
+    - iteration
+  sources:
+    - title: "GOV.UK: Beta phase"
+      url: https://www.gov.uk/service-manual/agile-delivery/how-the-beta-phase-works
+- id: navigation
+  term: Navigation
+  aliases:
+    - website navigation
+    - app navigation
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    The controls and structure that help users move between locations or views and
+    understand where they are.
+  analogy: >-
+    The website's signposts, ideally better than 'miscellaneous stuff down that corridor.'
+  example: >-
+    A topic sidebar, breadcrumbs, and links to related terms provide different navigation
+    paths.
+  caveat: >-
+    Navigation should work with keyboards, meaningful link text, and browser history. Use
+    links for destinations and buttons for actions.
+  related:
+    - ui
+    - accessibility
+    - website
+  sources:
+    - title: Navigation — reference and documentation
+      url: https://www.w3.org/WAI/tutorials/menus/
+- id: prototype
+  term: Prototype
+  aliases:
+    - prototyping
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    An early representation of a product used to explore or test ideas.
+  analogy: >-
+    A rehearsal that lets you find the awkward parts before opening night.
+  example: >-
+    A clickable mockup can test whether people understand navigation.
+  caveat: >-
+    A prototype may not be usable as a production product.
+  related:
+    - mvp
+    - usability
+  sources:
+    - title: "GOV.UK: Making prototypes"
+      url: https://www.gov.uk/service-manual/design/making-prototypes
+- id: semantic-html
+  term: Semantic HTML
+  aliases:
+    - semantics
+  category: product
+  level: intermediate
+  tags:
+    - product
+  definition: >-
+    Using HTML elements that describe the meaning and role of content.
+  analogy: >-
+    Putting the correct labels on the drawers instead of painting everything 'box'.
+  example: >-
+    Use a button for an action and a heading for a section title.
+  caveat: >-
+    Semantic elements still need correct content and interaction behavior.
+  related:
+    - html
+    - accessibility
+  sources:
+    - title: "MDN: Semantics"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Semantics
+- id: usability
+  term: Usability
+  aliases:
+    - user testing
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    How effectively, efficiently, and satisfactorily people can achieve goals with a
+    system.
+  analogy: >-
+    Whether people can use your toaster without enrolling in toaster school.
+  example: >-
+    Watching users find a term can reveal confusing filter labels.
+  caveat: >-
+    Usability depends on the users, task, and context.
+  related:
+    - ux
+    - prototype
+  sources:
+    - title: "GOV.UK: Usability testing"
+      url: https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing
+- id: ux
+  term: User experience
+  aliases:
+    - UX
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    A person's overall experience of using a product or service.
+  analogy: >-
+    How the whole dinner feels, not just how shiny the menu looks.
+  example: >-
+    Clear checkout steps and useful error messages improve the experience.
+  caveat: >-
+    UX includes more than visual interface design.
+  related:
+    - ui
+    - usability
+  sources:
+    - title: "GOV.UK: User research"
+      url: https://www.gov.uk/service-manual/user-research
+- id: ui
+  term: User interface
+  aliases:
+    - UI
+  category: product
+  level: beginner
+  tags:
+    - product
+  definition: >-
+    The controls and presentation through which people interact with a system.
+  analogy: >-
+    The dashboard, buttons, and labels on your product's spaceship.
+  example: >-
+    A search field and category buttons are interface elements.
+  caveat: >-
+    A polished interface alone does not guarantee a good experience.
+  related:
+    - ux
+    - accessibility
+  sources:
+    - title: GOV.UK Design System
+      url: https://design-system.service.gov.uk/

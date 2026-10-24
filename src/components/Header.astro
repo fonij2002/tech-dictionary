@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+import { withBase } from '../lib/urls';
+---
+
+<header class="site-header">
+  <div class="wrap header-inner d-flex align-items-center justify-content-between gap-3">
+    <a
+      class="brand d-inline-flex align-items-center text-decoration-none"
+      href={withBase()}
+      aria-label="Tech Dictionary home"
+    >
+      <span class="brand-mark" aria-hidden="true">
+        t.
+      </span>
+      <span>
+        tech dictionary<span class="text-primary">.</span>
+      </span>
+    </a>
+    <nav class="header-nav d-flex align-items-center" aria-label="Main">
+      <a class="dictionary-nav" href={withBase()}>
+        Dictionary
+      </a>
+      <a href={withBase('data/')}>The data</a>
+      <a class="nav-action btn btn-sm border" href={withBase('contribute/')}>
+        <Icon name="edit" size={16} />
+        Contribute
+      </a>
+    </nav>
+  </div>
+</header>

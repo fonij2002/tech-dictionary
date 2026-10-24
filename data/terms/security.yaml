@@ -1,0 +1,458 @@
+# Complete replacement for data/terms/security.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: access-token
+  term: Access token
+  aliases:
+    - OAuth access token
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    A credential a client presents to access protected resources within granted
+    permissions and a limited lifetime.
+  analogy: >-
+    A timed gym pass that opens the approved rooms, not the owner's office.
+  example: >-
+    A client sends Authorization: Bearer <access-token> to an API over HTTPS.
+  caveat: >-
+    Access tokens need not be JWTs. A bearer token can be used by whoever obtains it, so
+    protect it and validate it.
+  related:
+    - refresh-token
+    - jwt
+    - authorization
+  sources:
+    - title: "RFC 6749: Access Token"
+      url: https://www.rfc-editor.org/rfc/rfc6749#section-1.4
+- id: authentication
+  term: Authentication
+  aliases:
+    - authn
+    - login
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    Checking that someone or something is who it claims to be.
+  analogy: >-
+    The door asking 'who are you?' before doing anything else.
+  example: >-
+    A service verifies a user's password or security key.
+  caveat: >-
+    Proving identity does not establish permission for every action.
+  related:
+    - authorization
+    - mfa
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: authorization
+  term: Authorization
+  aliases:
+    - authz
+    - permissions
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    Checking whether an identity is allowed to perform an action or access a resource.
+  analogy: >-
+    You have an office badge; that still does not give you the CEO's snack drawer.
+  example: >-
+    A server checks whether a user may delete a project.
+  caveat: >-
+    Authorization must be enforced where the protected action occurs.
+  related:
+    - authentication
+    - least-privilege
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: csp
+  term: Content Security Policy
+  aliases:
+    - CSP
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    Browser policy rules that restrict permitted resource loading and certain execution
+    behaviors.
+  analogy: >-
+    A guest list for scripts, styles, and other resources on a page.
+  example: >-
+    A policy can disallow inline scripts and limit script origins.
+  caveat: >-
+    CSP is defense in depth, not a replacement for safe application code.
+  related:
+    - xss
+    - https
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: csrf
+  term: Cross-site request forgery
+  aliases:
+    - CSRF
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    An attack that causes a browser to send an unwanted request using a victim's
+    credentials.
+  analogy: >-
+    Someone tricking your already-badged browser into pressing a button for them.
+  example: >-
+    A malicious page attempts a state-changing request to a site where you are logged in.
+  caveat: >-
+    Appropriate CSRF protections depend on the authentication and request design.
+  related:
+    - cookie
+    - session
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: xss
+  term: Cross-site scripting
+  aliases:
+    - XSS
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    A vulnerability where attacker-controlled content executes as script in a user's
+    browser.
+  analogy: >-
+    An uninvited guest sneaking stage directions into your web page.
+  example: >-
+    Unsafe HTML insertion can let a comment execute malicious JavaScript.
+  caveat: >-
+    Use safe rendering and context-appropriate defenses; input filtering alone is
+    insufficient.
+  related:
+    - dom
+    - csp
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: encryption
+  term: Encryption
+  aliases:
+    - encrypt
+    - decrypt
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    Transforming readable data into a form that requires appropriate key material to
+    recover.
+  analogy: >-
+    Locking the message in a box instead of hoping nobody reads the envelope.
+  example: >-
+    TLS encrypts data exchanged over a secure connection.
+  caveat: >-
+    Encryption does not protect against every endpoint or key-management failure.
+  related:
+    - hashing
+    - tls
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: hashing
+  term: Hashing
+  aliases:
+    - hash
+    - cryptographic hash
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    Mapping input to a fixed-size output; cryptographic hashes are designed to resist
+    certain attacks.
+  analogy: >-
+    A data fingerprint, not a tiny recoverable photocopy.
+  example: >-
+    A file hash can help check whether file contents changed.
+  caveat: >-
+    Password storage needs a suitable password-hashing scheme, not a plain fast hash.
+  related:
+    - encryption
+    - salting
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: httponly-cookie
+  term: HttpOnly cookie
+  aliases:
+    - HTTP-only cookie
+    - HTTP only cookie
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    A cookie marked HttpOnly so browser JavaScript cannot read or change it through APIs
+    such as document.cookie.
+  analogy: >-
+    A cookie jar behind the counter: scripts cannot grab it, but the browser waiter can
+    still serve it.
+  example: >-
+    Set-Cookie: session=opaque-id; HttpOnly; Secure; SameSite=Lax; Path=/
+  caveat: >-
+    HttpOnly reduces token theft through script access; it does not prevent malicious
+    requests, XSS itself, or all CSRF attacks.
+  related:
+    - cookie
+    - xss
+    - csrf
+    - session
+  sources:
+    - title: "MDN: HttpOnly cookie"
+      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie
+- id: jwt
+  term: JWT
+  aliases:
+    - JSON Web Token
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    A compact format for carrying claims, such as a user ID, in a token that can be signed
+    or encrypted.
+  analogy: >-
+    A pocket-sized claim ticket; the bouncer still has to check who issued it.
+  example: >-
+    An API validates a signed JWT's signature, issuer, audience, and expiration before
+    accepting its claims.
+  caveat: >-
+    A signed JWT is usually readable, not encrypted. Decoding claims is not validation,
+    and JWT is not an authentication protocol.
+  related:
+    - access-token
+    - refresh-token
+    - authentication
+  sources:
+    - title: "RFC 7519: JSON Web Token"
+      url: https://www.rfc-editor.org/rfc/rfc7519
+    - title: "RFC 8725: JSON Web Token Best Current Practices"
+      url: https://www.rfc-editor.org/rfc/rfc8725
+- id: least-privilege
+  term: Least privilege
+  aliases: []
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    Giving an identity only the access needed to perform its required tasks.
+  analogy: >-
+    Giving the gardener a garden key, not the keys to every apartment.
+  example: >-
+    A read-only reporting account should not be able to delete database tables.
+  caveat: >-
+    Permissions need review as tasks and roles change.
+  related:
+    - authorization
+    - secret
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: mfa
+  term: Multi-factor authentication
+  aliases:
+    - MFA
+    - 2FA
+    - two-factor authentication
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    Authentication using more than one distinct category of factor.
+  analogy: >-
+    The door asking for your key and proof that you are carrying it.
+  example: >-
+    A login can require a password and a security key.
+  caveat: >-
+    Two passwords are not two different factor categories.
+  related:
+    - authentication
+    - phishing
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: phishing
+  term: Phishing
+  aliases:
+    - social engineering
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    Deceptive messages or sites that trick people into revealing information or taking
+    harmful actions.
+  analogy: >-
+    A scammer wearing a fake help-desk mustache.
+  example: >-
+    A fake login page tries to capture your password.
+  caveat: >-
+    Phishing can arrive through many channels, not only email.
+  related:
+    - mfa
+    - authentication
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: refresh-token
+  term: Refresh token
+  aliases:
+    - OAuth refresh token
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    A credential used with an authorization server to obtain a new access token without
+    repeating the full login flow.
+  analogy: >-
+    The pass-renewal voucher you keep safe, rather than waving at every gym door.
+  example: >-
+    When an access token expires, the client exchanges an eligible refresh token at the
+    token endpoint.
+  caveat: >-
+    Do not send it to ordinary resource endpoints. Storage, expiration, revocation, and
+    rotation or sender binding depend on the client and security policy.
+  related:
+    - access-token
+    - jwt
+    - authentication
+  sources:
+    - title: "RFC 6749: Refresh Token"
+      url: https://www.rfc-editor.org/rfc/rfc6749#section-1.5
+    - title: "RFC 9700: OAuth 2.0 Security Best Current Practice"
+      url: https://www.rfc-editor.org/rfc/rfc9700#section-4.14
+- id: salting
+  term: Salting
+  aliases:
+    - salt
+    - password salt
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    Adding a unique value to each password before hashing it.
+  analogy: >-
+    Giving each password its own seasoning so identical recipes do not look identical.
+  example: >-
+    Two users with the same password can have different stored password hashes.
+  caveat: >-
+    A salt is usually public; it does not replace a secure password-hashing scheme.
+  related:
+    - hashing
+    - authentication
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: secret
+  term: Secret
+  aliases:
+    - API key
+    - credentials
+    - access token
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    Sensitive information that grants access or must remain confidential.
+  analogy: >-
+    The spare key that should never appear in your public README.
+  example: >-
+    A backend stores an API credential outside committed source code.
+  caveat: >-
+    Anything shipped in frontend code can be inspected by users.
+  related:
+    - authentication
+    - environment-variable
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: sql-injection
+  term: SQL injection
+  aliases:
+    - SQLi
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    An attack where untrusted input changes the meaning of a database command.
+  analogy: >-
+    A visitor writing extra instructions on the order slip and hoping the kitchen obeys.
+  example: >-
+    Unsafe string-building can turn a search input into part of a SQL command.
+  caveat: >-
+    Use parameterized queries and appropriate permissions.
+  related:
+    - sql
+    - query
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: tls
+  term: TLS
+  aliases:
+    - transport layer security
+  category: security
+  level: intermediate
+  tags:
+    - security
+  definition: >-
+    A protocol for protecting communication with encryption, integrity checks, and peer
+    authentication.
+  analogy: >-
+    A private conversation with tamper checks and an ID check at the start.
+  example: >-
+    HTTPS uses TLS to protect traffic between browser and server.
+  caveat: >-
+    Trust and security depend on correct certificates, configuration, and endpoints.
+  related:
+    - https
+    - encryption
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/
+- id: vulnerability
+  term: Vulnerability
+  aliases:
+    - security vulnerability
+  category: security
+  level: beginner
+  tags:
+    - security
+  definition: >-
+    A weakness that can be exploited to compromise a system or its users.
+  analogy: >-
+    A crack in the fence that matters when someone can crawl through it.
+  example: >-
+    An unpatched library may contain an exploitable flaw.
+  caveat: >-
+    Actual risk depends on exposure, exploitability, and impact.
+  related:
+    - dependency
+    - least-privilege
+  sources:
+    - title: OWASP Cheat Sheet Series
+      url: https://cheatsheetseries.owasp.org/

@@ -1,0 +1,440 @@
+# Complete replacement for data/terms/computer-basics.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: binary
+  term: Binary
+  aliases:
+    - base two
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    A number system that uses just two digits: 0 and 1.
+  analogy: >-
+    Counting with two fingers, but somehow running the internet.
+  example: >-
+    The binary number 101 represents the decimal number 5.
+  caveat: >-
+    Binary is a representation, not a programming language.
+  related:
+    - bit
+    - hexadecimal
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: bit
+  term: Bit
+  aliases:
+    - binary digit
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    The smallest unit of digital information, with a value of either 0 or 1.
+  analogy: >-
+    A light switch with only two moods: off and on.
+  example: >-
+    Eight bits can represent 256 different combinations.
+  caveat: >-
+    A bit is not the same as a byte.
+  related:
+    - byte
+    - binary
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: byte
+  term: Byte
+  aliases: []
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    A group of eight bits, commonly used to measure data size.
+  analogy: >-
+    Eight tiny switches sharing a very small apartment.
+  example: >-
+    A file of 1,000 bytes is one decimal kilobyte.
+  caveat: >-
+    One character can need more than one byte.
+  related:
+    - bit
+    - unicode
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: cache
+  term: Cache
+  aliases:
+    - caching
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    A store of reusable results or data that can make future access faster.
+  analogy: >-
+    Keeping your favorite snack on your desk instead of hiking to the kitchen.
+  example: >-
+    A browser caches an image so it need not download it again.
+  caveat: >-
+    Cached data can become stale; freshness needs a plan.
+  related:
+    - ram
+    - cdn
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: cpu
+  term: CPU
+  aliases:
+    - central processing unit
+    - processor
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    The main processor that executes a computer's instructions.
+  analogy: >-
+    The kitchen chef: follows instructions, gets hot, needs a fan.
+  example: >-
+    A CPU runs the instructions in your spreadsheet app.
+  caveat: >-
+    Clock speed alone does not tell you overall performance.
+  related:
+    - gpu
+    - ram
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: encoding
+  term: Encoding
+  aliases:
+    - UTF-8
+    - character encoding
+  category: computer-basics
+  level: intermediate
+  tags:
+    - computer-basics
+  definition: >-
+    A set of rules for representing information in a particular format.
+  analogy: >-
+    Packing the same message into a box the receiver knows how to unpack.
+  example: >-
+    UTF-8 represents Unicode characters as sequences of bytes.
+  caveat: >-
+    Encoding is not encryption and does not make a message secret.
+  related:
+    - unicode
+    - encryption
+  sources:
+    - title: "MDN: Character encoding"
+      url: https://developer.mozilla.org/en-US/docs/Glossary/Character_encoding
+- id: gpu
+  term: GPU
+  aliases:
+    - graphics processing unit
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    A processor designed to perform many similar calculations in parallel.
+  analogy: >-
+    A huge kitchen crew chopping thousands of carrots at once.
+  example: >-
+    GPUs help render games and train many machine-learning models.
+  caveat: >-
+    Not every task gets faster on a GPU.
+  related:
+    - cpu
+    - machine-learning
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: hexadecimal
+  term: Hexadecimal
+  aliases:
+    - hex
+    - base sixteen
+  category: computer-basics
+  level: intermediate
+  tags:
+    - computer-basics
+  definition: >-
+    A number system with sixteen digits: 0–9 and A–F.
+  analogy: >-
+    Binary put on a shorter coat so humans could read it.
+  example: >-
+    The CSS color #FF0000 is bright red.
+  caveat: >-
+    A–F represent the decimal values 10–15.
+  related:
+    - binary
+    - css
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: io
+  term: I/O
+  aliases:
+    - input/output
+    - input output
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    Moving data into or out of a program or system, such as reading a file or
+    communicating over a network.
+  analogy: >-
+    The kitchen's deliveries and serving hatch, rather than the actual chopping of onions.
+  example: >-
+    Reading terms.yaml from disk and fetching terms from a server are both I/O operations.
+  caveat: >-
+    I/O can block or be asynchronous depending on the API. Non-blocking I/O does not make
+    CPU-heavy computation faster.
+  related:
+    - async
+    - storage
+    - server
+  sources:
+    - title: I/O — reference and documentation
+      url: https://nodejs.org/en/learn/asynchronous-work/overview-of-blocking-vs-non-blocking
+- id: kernel
+  term: Kernel
+  aliases: []
+  category: computer-basics
+  level: intermediate
+  tags:
+    - computer-basics
+  definition: >-
+    The core of an operating system that manages resources such as memory and devices.
+  analogy: >-
+    The backstage manager you rarely see but absolutely need.
+  example: >-
+    The Linux kernel schedules processes and handles device access.
+  caveat: >-
+    The kernel is one part of an operating system.
+  related:
+    - operating-system
+    - process
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: linux
+  term: Linux
+  aliases:
+    - GNU/Linux
+    - Linux distribution
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    An operating-system kernel whose name also commonly refers to distributions that
+    combine it with system tools and software.
+  analogy: >-
+    The engine shared by many different buses, each with its own seats and slightly
+    opinionated dashboard.
+  example: >-
+    Ubuntu and Fedora are Linux distributions often used for development or running
+    servers.
+  caveat: >-
+    Strictly, Linux is the kernel; a distribution supplies the rest. Package managers and
+    defaults vary between distributions.
+  related:
+    - kernel
+    - operating-system
+    - server
+  sources:
+    - title: Linux — reference and documentation
+      url: https://www.kernel.org/linux.html
+- id: macos
+  term: macOS
+  aliases:
+    - Mac OS
+    - Mac OS X
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    Apple's operating system for Mac computers, providing the desktop environment and
+    services that applications use.
+  analogy: >-
+    The Mac's building manager, keeping apps, files, and hardware from arguing in the
+    hallway.
+  example: >-
+    A developer uses Terminal on macOS to run Git, Node.js, and a local development server.
+  caveat: >-
+    macOS is not Linux. Both support many Unix-style tools, but commands, file systems,
+    and platform APIs can differ.
+  related:
+    - operating-system
+    - linux
+    - shell
+  sources:
+    - title: macOS — reference and documentation
+      url: https://support.apple.com/guide/mac-help/welcome/mac
+- id: operating-system
+  term: Operating system
+  aliases:
+    - OS
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    Software that manages hardware and provides services for other programs.
+  analogy: >-
+    The hotel manager who gives apps rooms and stops fights over the elevator.
+  example: >-
+    Linux, Windows, and macOS are operating systems.
+  caveat: >-
+    An operating system is more than its visual desktop.
+  related:
+    - kernel
+    - process
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: process
+  term: Process
+  aliases: []
+  category: computer-basics
+  level: intermediate
+  tags:
+    - computer-basics
+  definition: >-
+    A running instance of a program, with its own resources and execution state.
+  analogy: >-
+    A recipe is a program; the chef currently cooking it is a process.
+  example: >-
+    Opening two app instances may create two processes.
+  caveat: >-
+    One program can start several processes.
+  related:
+    - thread
+    - operating-system
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: ram
+  term: RAM
+  aliases:
+    - random access memory
+    - memory
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    Working memory that holds data programs need while they run.
+  analogy: >-
+    Your desk: useful now, mysteriously empty after the lights go out.
+  example: >-
+    An editor keeps your open document in RAM.
+  caveat: >-
+    Typical RAM loses its contents when power is removed.
+  related:
+    - cpu
+    - storage
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: storage
+  term: Storage
+  aliases:
+    - disk
+    - ssd
+    - hdd
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    Hardware that keeps files and other data even when power is off.
+  analogy: >-
+    The filing cabinet your computer remembers to keep overnight.
+  example: >-
+    An SSD stores photos, apps, and the operating system.
+  caveat: >-
+    Storage capacity and RAM capacity solve different problems.
+  related:
+    - ram
+    - operating-system
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: thread
+  term: Thread
+  aliases: []
+  category: computer-basics
+  level: intermediate
+  tags:
+    - computer-basics
+  definition: >-
+    An execution path within a process that usually shares that process's memory.
+  analogy: >-
+    Several cooks in one kitchen, all reaching for the same salt.
+  example: >-
+    A browser can use different threads for different tasks.
+  caveat: >-
+    Sharing memory makes coordination necessary.
+  related:
+    - process
+    - concurrency
+  sources:
+    - title: MDN Glossary
+      url: https://developer.mozilla.org/en-US/docs/Glossary
+- id: unicode
+  term: Unicode
+  aliases: []
+  category: computer-basics
+  level: intermediate
+  tags:
+    - computer-basics
+  definition: >-
+    A standard that assigns identifiers to characters from many writing systems.
+  analogy: >-
+    A huge guest list where letters, emojis, and symbols all get a number.
+  example: >-
+    Unicode includes Latin letters, Persian letters, and emoji.
+  caveat: >-
+    Unicode character identifiers and byte encodings are different things.
+  related:
+    - encoding
+    - byte
+  sources:
+    - title: Unicode Standard
+      url: https://www.unicode.org/standard/standard.html
+- id: windows
+  term: Windows
+  aliases:
+    - Microsoft Windows
+  category: computer-basics
+  level: beginner
+  tags:
+    - computer-basics
+  definition: >-
+    Microsoft's operating-system family that manages hardware, applications, files, and
+    the user environment.
+  analogy: >-
+    The computer's building manager, with a Start menu instead of a clipboard.
+  example: >-
+    A developer runs VS Code, PowerShell, and a local web server on Windows.
+  caveat: >-
+    Windows differs from Unix-like environments in areas such as paths and shell commands.
+    WSL supplies a Linux environment alongside it.
+  related:
+    - operating-system
+    - macos
+    - linux
+  sources:
+    - title: Windows — reference and documentation
+      url: https://learn.microsoft.com/en-us/windows/

@@ -1,0 +1,62 @@
+---
+import TermDetail from './TermDetail.astro';
+import type { DictionaryTerm, DictionaryCategory } from '../../data/types';
+const empty: DictionaryTerm = {
+  id: '',
+  term: '',
+  aliases: [],
+  category: '',
+  level: 'beginner',
+  tags: [],
+  definition: '',
+  analogy: '',
+  example: '',
+  caveat: '',
+  related: [],
+  sources: [],
+};
+const category: DictionaryCategory = {
+  id: '',
+  name: '',
+  shortName: '',
+  description: '',
+  color: 'teal',
+};
+---
+
+<div
+  class="modal fade"
+  id="term-modal"
+  tabindex="-1"
+  aria-labelledby="detail-title"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="small text-secondary">A small explanation, a big aha.</span>
+        <button
+          class="btn-close"
+          type="button"
+          data-bs-dismiss="modal"
+          aria-label="Close definition"
+        ></button>
+      </div>
+      <div class="modal-body p-0" id="modal-detail"></div>
+    </div>
+  </div>
+</div>
+<template id="detail-template">
+  <TermDetail term={empty} category={category} related={[]} />
+</template>
+<template id="related-template">
+  <a href="" data-term=""></a>
+</template>
+<template id="source-template">
+  <li>
+    <a href="" target="_blank" rel="noopener noreferrer">
+      <span data-source-title></span>
+      <span class="visually-hidden"> (opens in a new tab)</span>
+    </a>
+  </li>
+</template>

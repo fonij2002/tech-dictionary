@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/urls';
+---
+
+<BaseLayout title="Page not found · Tech Dictionary" noindex>
+  <main id="main" class="wrap prose flex-grow-1">
+    <p class="eyebrow">404</p>
+    <h1>This word wandered off.</h1>
+    <p>The page may have moved, or the link may be incomplete.</p>
+    <a class="btn btn-primary" href={withBase()}>
+      Back to the dictionary
+    </a>
+  </main>
+</BaseLayout>

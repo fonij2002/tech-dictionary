@@ -1,0 +1,595 @@
+# Complete replacement for data/terms/ai.yaml
+# Includes existing entries and the newly authored full-stack study terms.
+
+- id: ai-agent
+  term: AI agent
+  aliases:
+    - agent
+    - agentic AI
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    A system that observes a situation and selects actions toward a goal, sometimes using
+    models and tools.
+  analogy: >-
+    An assistant with a to-do list and tool access, who still needs sensible boundaries.
+  example: >-
+    An agent can look up an issue, propose a fix, and run checks.
+  caveat: >-
+    Autonomy and capabilities vary; 'agent' has no single universal implementation.
+  related:
+    - api
+    - reinforcement-learning
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: artificial-intelligence
+  term: Artificial intelligence
+  aliases:
+    - AI
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    A broad field of building systems that perform tasks associated with intelligence.
+  analogy: >-
+    Teaching computers useful tricks without assuming they secretly want a promotion.
+  example: >-
+    An AI system might classify photos or plan a route.
+  caveat: >-
+    Different capabilities do not imply human-like understanding.
+  related:
+    - machine-learning
+    - generative-ai
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: attention
+  term: Attention
+  aliases:
+    - self-attention
+  category: ai
+  level: advanced
+  tags:
+    - ai
+  definition: >-
+    A mechanism that computes weighted combinations of information according to its
+    relevance.
+  analogy: >-
+    Math deciding which parts of the conversation deserve the loudest microphone.
+  example: >-
+    Self-attention can connect a pronoun to earlier context in a sequence.
+  caveat: >-
+    Attention weights are not a complete explanation of a model's reasoning.
+  related:
+    - transformer
+    - context-window
+  sources:
+    - title: Attention Is All You Need
+      url: https://arxiv.org/abs/1706.03762
+- id: context-window
+  term: Context window
+  aliases:
+    - context length
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    The maximum sequence of tokens a model can consider in a given interaction.
+  analogy: >-
+    The size of the desk holding the model's current reading material.
+  example: >-
+    A long document may exceed the model's context limit.
+  caveat: >-
+    A large window does not guarantee reliable use of every detail.
+  related:
+    - token
+    - llm
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: deep-learning
+  term: Deep learning
+  aliases:
+    - DL
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Machine learning using neural networks with multiple layers of representation.
+  analogy: >-
+    Many layers of math wearing the same oversized lab coat.
+  example: >-
+    A deep model can learn increasingly complex image features.
+  caveat: >-
+    Depth alone does not guarantee quality.
+  related:
+    - neural-network
+    - machine-learning
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: embedding
+  term: Embedding
+  aliases:
+    - vector embedding
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    A numerical representation that places items in a space where useful relationships can
+    be compared.
+  analogy: >-
+    Giving words or images coordinates in a giant mathematical neighborhood.
+  example: >-
+    Related sentences can have nearby text embeddings.
+  caveat: >-
+    Closeness depends on the model and is not an objective meaning score.
+  related:
+    - vector-database
+    - rag
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: evaluation
+  term: Evaluation
+  aliases:
+    - eval
+    - evals
+    - model evaluation
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Measuring a model or system's performance against defined tasks and criteria.
+  analogy: >-
+    A report card based on actual assignments, not how confidently the student smiles.
+  example: >-
+    An evaluation can test answer accuracy on a held-out question set.
+  caveat: >-
+    A useful evaluation should match real use and include failure cases.
+  related:
+    - overfitting
+    - model
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: fine-tuning
+  term: Fine-tuning
+  aliases:
+    - finetuning
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Further training an existing model on additional data for a particular purpose.
+  analogy: >-
+    Giving a trained chef extra practice with your restaurant's menu.
+  example: >-
+    A model can be fine-tuned on examples of a desired writing style.
+  caveat: >-
+    Fine-tuning changes model parameters; supplying documents in a prompt does not.
+  related:
+    - training
+    - rag
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: generative-ai
+  term: Generative AI
+  aliases:
+    - GenAI
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    AI systems that produce new content such as text, images, audio, or code.
+  analogy: >-
+    A pattern-powered studio that can create impressive work and impressive nonsense.
+  example: >-
+    A generative model can draft a caption from an image.
+  caveat: >-
+    Generated content still needs review for accuracy and suitability.
+  related:
+    - llm
+    - hallucination
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: hallucination
+  term: Hallucination
+  aliases:
+    - AI hallucination
+    - confabulation
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    Generated output that is unsupported, false, or inconsistent with the available
+    information.
+  analogy: >-
+    The model confidently giving directions to a cafe it just invented.
+  example: >-
+    An assistant might invent a citation for a paper that does not exist.
+  caveat: >-
+    The term does not imply the model is having a human experience.
+  related:
+    - llm
+    - rag
+  sources:
+    - title: Survey of hallucination in language generation
+      url: https://arxiv.org/abs/2202.03629
+- id: inference
+  term: Inference
+  aliases:
+    - model inference
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    Using a model to produce an output from new input.
+  analogy: >-
+    The exam after practice: the model uses what it already learned.
+  example: >-
+    A trained image model predicts what is in a new photo.
+  caveat: >-
+    Inference usually does not update the model's weights.
+  related:
+    - training
+    - model
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: llm
+  term: Large language model
+  aliases:
+    - LLM
+    - language model
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    A large model trained on language-related data to predict or generate token sequences.
+  analogy: >-
+    A very practiced text predictor that can sound confident even when it is wrong.
+  example: >-
+    An LLM can draft a summary or help explain code.
+  caveat: >-
+    Fluent text is not evidence of factual accuracy.
+  related:
+    - token
+    - hallucination
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: machine-learning
+  term: Machine learning
+  aliases:
+    - ML
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    Methods that learn patterns from data to make predictions or decisions.
+  analogy: >-
+    Instead of writing every rule, you show examples and let math find a pattern.
+  example: >-
+    A model can learn to predict house prices from past sales.
+  caveat: >-
+    Bad or unrepresentative data can produce bad predictions.
+  related:
+    - model
+    - training
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: model
+  term: Model
+  aliases:
+    - AI model
+    - ML model
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    A learned or specified mathematical system that maps inputs to outputs.
+  analogy: >-
+    A recipe whose settings may have been adjusted after tasting many examples.
+  example: >-
+    A spam model maps an email to a spam probability.
+  caveat: >-
+    A model's output is not automatically reliable outside its tested setting.
+  related:
+    - training
+    - inference
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: neural-network
+  term: Neural network
+  aliases:
+    - ANN
+    - artificial neural network
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    A model made of connected layers of numerical operations with adjustable parameters.
+  analogy: >-
+    A relay team of math workers passing transformed numbers onward.
+  example: >-
+    A neural network can transform pixels into class scores.
+  caveat: >-
+    Inspired by brains does not mean it works like a human brain.
+  related:
+    - deep-learning
+    - parameter
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: overfitting
+  term: Overfitting
+  aliases: []
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Learning training-specific details so strongly that performance suffers on new data.
+  analogy: >-
+    Memorizing the practice exam, then panicking when the questions change.
+  example: >-
+    A model fits training noise but predicts poorly on new examples.
+  caveat: >-
+    Evaluate on data that was not used for training or tuning.
+  related:
+    - training
+    - evaluation
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: parameter
+  term: Parameter
+  aliases:
+    - weights
+    - model weights
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    A value inside a model that influences its computations and may be learned during
+    training.
+  analogy: >-
+    One of the many knobs adjusted while the model practices.
+  example: >-
+    Training can adjust a neural network's weights.
+  caveat: >-
+    More parameters do not automatically mean better results for every task.
+  related:
+    - training
+    - neural-network
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: prompt
+  term: Prompt
+  aliases:
+    - prompting
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    The input instructions or context given to a generative model.
+  analogy: >-
+    The brief you hand to an enthusiastic assistant with imperfect judgment.
+  example: >-
+    A prompt can ask for three explanations written for beginners.
+  caveat: >-
+    A clear prompt helps but cannot guarantee correctness.
+  related:
+    - llm
+    - prompt-engineering
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: prompt-engineering
+  term: Prompt engineering
+  aliases:
+    - prompt design
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Designing and testing model inputs to improve behavior for a task.
+  analogy: >-
+    Editing the recipe instructions until the assistant stops adding imaginary ingredients.
+  example: >-
+    You can test whether examples improve a classification prompt.
+  caveat: >-
+    It is one part of a system, alongside evaluation and other controls.
+  related:
+    - prompt
+    - evaluation
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: rag
+  term: RAG
+  aliases:
+    - Retrieval-augmented generation
+    - retrieval augmented generation
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    A technique that retrieves relevant information and supplies it as context to a model
+    so it can generate a better-grounded answer.
+  analogy: >-
+    An open-book exam for an AI that still occasionally misreads the textbook.
+  example: >-
+    A support assistant retrieves relevant help articles before answering a question about
+    refunds.
+  caveat: >-
+    Retrieval does not retrain the model or guarantee correctness. Bad sources, missing
+    context, and fabricated claims remain possible.
+  related:
+    - llm
+    - embedding
+    - hallucination
+  sources:
+    - title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+      url: https://arxiv.org/abs/2005.11401
+- id: reinforcement-learning
+  term: Reinforcement learning
+  aliases:
+    - RL
+    - reward
+  category: ai
+  level: advanced
+  tags:
+    - ai
+  definition: >-
+    Learning a policy for actions through interaction and reward signals.
+  analogy: >-
+    Trying moves, seeing what scores points, and improving the strategy.
+  example: >-
+    An agent can learn game-playing actions from rewards.
+  caveat: >-
+    A badly designed reward can encourage unintended behavior.
+  related:
+    - machine-learning
+    - ai-agent
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: supervised-learning
+  term: Supervised learning
+  aliases:
+    - labeled data
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Learning from examples that include the desired target output.
+  analogy: >-
+    Practice questions with answer keys, but considerably more spreadsheets.
+  example: >-
+    Training on emails labeled spam or not spam is supervised learning.
+  caveat: >-
+    Labels can be noisy, biased, or inconsistent.
+  related:
+    - machine-learning
+    - training
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: token
+  term: Token
+  aliases:
+    - AI token
+    - tokenization
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    A unit of input or output processed by a model, often part of a word.
+  analogy: >-
+    Text cut into bite-sized pieces; the slices are not always whole words.
+  example: >-
+    The word 'unbelievable' may be split into several tokens.
+  caveat: >-
+    Token boundaries and counts depend on the tokenizer.
+  related:
+    - llm
+    - context-window
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: training
+  term: Training
+  aliases:
+    - model training
+  category: ai
+  level: beginner
+  tags:
+    - ai
+  definition: >-
+    The process of adjusting a model using data and an objective.
+  analogy: >-
+    Practice time, where the model's knobs get tweaked after each mistake.
+  example: >-
+    Training adjusts parameters to reduce prediction error on training examples.
+  caveat: >-
+    Good training results do not guarantee good results on unseen data.
+  related:
+    - inference
+    - overfitting
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary
+- id: transformer
+  term: Transformer
+  aliases:
+    - transformer architecture
+  category: ai
+  level: advanced
+  tags:
+    - ai
+  definition: >-
+    A neural-network architecture that uses attention to combine information from
+    different positions.
+  analogy: >-
+    A reading group where each word can check which other words matter.
+  example: >-
+    Many language models are based on transformer architectures.
+  caveat: >-
+    Transformers are used beyond text, including vision and audio.
+  related:
+    - attention
+    - neural-network
+  sources:
+    - title: Attention Is All You Need
+      url: https://arxiv.org/abs/1706.03762
+- id: unsupervised-learning
+  term: Unsupervised learning
+  aliases:
+    - clustering
+  category: ai
+  level: intermediate
+  tags:
+    - ai
+  definition: >-
+    Finding patterns in data without supplied target answers for each example.
+  analogy: >-
+    Sorting a drawer of mysterious cables without anyone telling you their names.
+  example: >-
+    A clustering method can group similar customer behaviors.
+  caveat: >-
+    A discovered pattern is not automatically useful or meaningful.
+  related:
+    - machine-learning
+    - embedding
+  sources:
+    - title: Google ML Glossary
+      url: https://developers.google.com/machine-learning/glossary

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getDictionary } from '../../lib/dictionary';
+const { terms, categories } = await getDictionary();
+const example = `const response = await fetch('/data/v1/terms.json');
+if (!response.ok) throw new Error('Dictionary unavailable');
+const dictionary = await response.json();
+const api = dictionary.terms.find(term => term.id === 'api');
+document.querySelector('#definition').textContent = api.definition;`;
+---
+
+<BaseLayout title="Open dataset · Tech Dictionary">
+  <main id="main" class="wrap prose flex-grow-1">
+    <p class="eyebrow">Words worth sharing</p>
+    <h1>Take the definitions with you.</h1>
+    <p>
+      The dictionary is also a dataset: {terms.length} original entries across {categories.length}{' '}
+      topics. Use it in your own website, learning app, or documentation.
+    </p>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <a class="btn btn-primary" href="v1/terms.json" download="tech-dictionary-v1.json">
+        Download the dataset
+      </a>
+      <a class="btn btn-outline-primary" href="terms.json">
+        Flat term list
+      </a>
+    </div>
+    <h2>What's in an entry?</h2>
+    <p>
+      A stable ID, display term, aliases, category, learning level, tags, definition, analogy,
+      example, caveat, related IDs, and reference links.
+    </p>
+    <h2>Read it in JavaScript</h2>
+    <p>
+      Download and serve your own reviewed copy for production. Use a path suitable for your site's
+      base directory.
+    </p>
+    <pre><code>{example}</code></pre>
+    <p>
+      Cross-origin fetching depends on the host's CORS policy. Use escaped rendering or{' '}
+      <code>textContent</code> for plain-text fields.
+    </p>
+    <h2>Give a little credit</h2>
+    <p>
+      Credit <strong>Tech Dictionary contributors</strong>, link to this project and{' '}
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and indicate changes.
+      Code is MIT-licensed. Linked reference material retains its own license.
+    </p>
+    <h2>Useful files</h2>
+    <ul>
+      <li>
+        <a href="v1/terms.json">Versioned dataset envelope</a>
+      </li>
+      <li>
+        <a href="terms.json">Plain array of terms</a>
+      </li>
+      <li>
+        <a href="categories.json">Category metadata</a>
+      </li>
+      <li>
+        <a href="term.schema.json">JSON Schema</a>
+      </li>
+      <li>
+        <a href="types.ts">TypeScript types</a>
+      </li>
+    </ul>
+    <p>
+      Contributors edit YAML source files. Astro validates and exports them as JSON during the
+      build.
+    </p>
+  </main>
+</BaseLayout>

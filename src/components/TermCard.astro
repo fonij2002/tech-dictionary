@@ -1,0 +1,37 @@
+---
+import type { DictionaryTerm, DictionaryCategory } from '../../data/types';
+import { withBase } from '../lib/urls';
+interface Props {
+  term: DictionaryTerm;
+  category: DictionaryCategory;
+  number: number;
+}
+const { term, category, number } = Astro.props;
+const rank = ['beginner', 'intermediate', 'advanced'].indexOf(term.level) + 1;
+---
+
+<a
+  class="term-card card text-decoration-none"
+  href={withBase(`terms/${term.id}/`)}
+  data-term={term.id}
+>
+  <div class="card-top d-flex justify-content-between align-items-center gap-2">
+    <span class:list={['category-tag', `color-${category.color}`]}>{category.shortName}</span>
+    <span class="card-number font-monospace" data-card-number>
+      {String(number).padStart(3, '0')}
+    </span>
+  </div>
+  <h3>{term.term}</h3>
+  <p class="card-definition mb-0">{term.definition}</p>
+  <div class="card-footer-row d-flex justify-content-between align-items-center gap-2 mt-auto">
+    <span class="level-label d-inline-flex align-items-center gap-2">
+      <span class="level-bars" aria-hidden="true">
+        {[1, 2, 3].map((n) => (
+          <i class:list={{ filled: n <= rank }} />
+        ))}
+      </span>
+      {term.level[0].toUpperCase() + term.level.slice(1)}
+    </span>
+    <span class="read-label">Get the meaning</span>
+  </div>
+</a>
