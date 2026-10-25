@@ -1,6 +1,7 @@
 ---
-import Icon from './Icon.astro';
+import { site } from '../lib/site';
 import { withBase } from '../lib/urls';
+import Icon from './Icon.astro';
 ---
 
 <header class="site-header">
@@ -22,7 +23,7 @@ import { withBase } from '../lib/urls';
         Dictionary
       </a>
       <a href={withBase('data/')}>The data</a>
-      <a class="nav-action btn btn-sm border" href={withBase('contribute/')}>
+      <a class="nav-action btn btn-sm border" href={site.repository}>
         <Icon name="edit" size={16} />
         Contribute
       </a>

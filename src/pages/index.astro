@@ -37,9 +37,6 @@ const counts = new Map(
           Tech Buzzwords, in <em>human.</em>
         </h1>
       </div>
-      <div class="hero-note">
-        <strong>{terms.length}</strong>entries.
-      </div>
     </section>
     <form id="search-form" role="search">
       <label class="visually-hidden" for="search">
@@ -107,7 +104,7 @@ const counts = new Map(
         <div class="sidebar-callout">
           <strong>Help us grow this dictionary together.</strong>
           <p>
-            <a href={withBase('contribute/')}>Know a word we're missing?</a>
+            <a href={site.repository}>Know a word we're missing?</a>
           </p>
         </div>
       </aside>
@@ -195,7 +192,7 @@ const counts = new Map(
             Clear search & filters
           </button>
           <p class="mb-0 mt-3">
-            Something missing? <a href={withBase('contribute/')}>Suggest a term.</a>
+            Something missing? <a href={site.repository}>Suggest a term.</a>
           </p>
         </div>
       </section>

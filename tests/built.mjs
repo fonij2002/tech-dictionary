@@ -82,7 +82,7 @@ assert.equal(
 );
 apiDOM.window.close();
 
-async function setup({ failFirst = false, source = html, url = homeURL } = {}) {
+async function setup({ failFirst = false, source = html, url = homeURL, width = 1280 } = {}) {
   const errors = [];
   const console = new VirtualConsole();
   console.on('jsdomError', (error) => {
@@ -95,6 +95,10 @@ async function setup({ failFirst = false, source = html, url = homeURL } = {}) {
     virtualConsole: console,
   });
   const window = dom.window;
+  window.matchMedia = (query) => ({
+    media: query,
+    matches: width >= 768,
+  });
   let calls = 0;
   window.fetch = async (input) => {
     if (failFirst && calls++ === 0) return { ok: false };
@@ -236,6 +240,33 @@ try {
   assert.equal(permalink.window.document.querySelector('[data-copy-term]').hidden, false);
 } finally {
   permalink.dom.window.close();
+}
+
+// Mobile clicks retain their anchor's default navigation; 768px opens a modal.
+for (const width of [390, 767, 768]) {
+  const responsive = await setup({ width });
+  try {
+    const { $, click, until, window } = responsive;
+    await until(() => !$('search').disabled);
+    const card = window.document.querySelector('#term-grid [data-term="api"]');
+    assert.equal(card.href, new URL('terms/api/', homeURL).href);
+    assert.equal(click(card), width < 768);
+    if (width >= 768) {
+      await until(() => $('term-modal').classList.contains('show'));
+      assert.equal($('modal-detail').querySelector('[data-field="term"]').textContent, 'API');
+    } else {
+      assert.equal(click($('word-of-day')), true);
+      $('search').value = 'algoritm';
+      $('search-form').dispatchEvent(
+        new window.Event('submit', { bubbles: true, cancelable: true }),
+      );
+      assert.equal(click($('suggestions').querySelector('[data-term="algorithm"]')), true);
+      assert.equal($('term-modal').classList.contains('show'), false);
+      assert.equal(new URL(window.location.href).searchParams.has('term'), false);
+    }
+  } finally {
+    responsive.dom.window.close();
+  }
 }
 
 console.log(
