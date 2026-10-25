@@ -16,12 +16,9 @@
 
 </div>
 
-## Features
+## What is the point of this project?
 
-- Search terms and filter by topic, difficulty, or first letter.
-- Discover related terms and a daily featured word.
-- Read definitions in desktop modals or dedicated mobile pages.
-- Contribute through readable YAML files; reuse the generated JSON datasets.
+To help curious learners, especially product builders, understand tech jargon in plain English and make sense of the technology behind what they're building.
 
 ## Run locally
 
