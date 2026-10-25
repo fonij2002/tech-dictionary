@@ -1,6 +1,6 @@
 ---
+import type { DictionaryCategory, DictionaryTerm } from '../../data/types';
 import TermDetail from './TermDetail.astro';
-import type { DictionaryTerm, DictionaryCategory } from '../../data/types';
 const empty: DictionaryTerm = {
   id: '',
   term: '',
@@ -34,7 +34,6 @@ const category: DictionaryCategory = {
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <span class="small text-secondary">A small explanation, a big aha.</span>
         <button
           class="btn-close"
           type="button"

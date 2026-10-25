@@ -32,8 +32,6 @@
     "@types/bootstrap": "5.2.11",
     "@types/node": "24.19.2",
     "jsdom": "26.1.0",
-    "prettier": "3.9.10",
-    "prettier-plugin-astro": "1.1.1",
     "typescript": "6.0.3"
   }
 }

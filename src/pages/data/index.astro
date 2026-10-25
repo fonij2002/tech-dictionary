@@ -2,11 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getDictionary } from '../../lib/dictionary';
 const { terms, categories } = await getDictionary();
-const example = `const response = await fetch('/data/v1/terms.json');
-if (!response.ok) throw new Error('Dictionary unavailable');
-const dictionary = await response.json();
-const api = dictionary.terms.find(term => term.id === 'api');
-document.querySelector('#definition').textContent = api.definition;`;
 ---
 
 <BaseLayout title="Open dataset · Tech Dictionary">

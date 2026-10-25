@@ -155,6 +155,7 @@ try {
   const lookup = (query) => {
     $('search').value = query;
     $('search-form').dispatchEvent(new window.Event('submit', { bubbles: true, cancelable: true }));
+    assert.deepEqual(ui.errors, [], 'Search handler must not throw before updating the URL');
   };
   await until(() => !$('search').disabled);
   assert.equal(visible().length, expectedCount);
@@ -221,6 +222,23 @@ try {
   assert.deepEqual(ui.errors, []);
 } finally {
   ui.dom.window.close();
+}
+
+// A visible summary counter is optional, including when omitted from the HTML.
+const compactHTML = html.replace(/<p\b[^>]*\bid="shown-count"[^>]*>[\s\S]*?<\/p>/, '');
+const compact = await setup({ source: compactHTML });
+try {
+  const { $, window, until } = compact;
+  await until(() => !$('search').disabled);
+  assert.equal($('shown-count'), null);
+  assert.equal($('load-status').hidden, true);
+  $('search').value = 'API';
+  $('search-form').dispatchEvent(new window.Event('submit', { bubbles: true, cancelable: true }));
+  assert.deepEqual(compact.errors, []);
+  assert.equal(new URL(window.location.href).searchParams.get('q'), 'API');
+  assert.equal([...$('term-grid').children].find((card) => !card.hidden).dataset.term, 'api');
+} finally {
+  compact.dom.window.close();
 }
 
 const retry = await setup({ failFirst: true });
