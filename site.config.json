@@ -1,6 +1,6 @@
 {
   "name": "Tech Dictionary",
-  "description": "Simple definitions. Real examples. A little less jargon, a little more joy.",
+  "description": "An open-source dictionary that simplifies tech jargon, from programming concepts to AI and DevOps.",
   "repository": "https://github.com/fonij2002/tech-dictionary",
   "siteUrl": "https://fonij2002.github.io/tech-dictionary/",
   "defaultBranch": "master"
