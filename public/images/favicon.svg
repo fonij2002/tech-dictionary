@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="17" fill="#096450"/><text x="17" y="47" font-family="Georgia,serif" font-size="49" fill="white">t.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 168" fill="none" role="img" aria-labelledby="tech-dictionary-logo-title">
+  <title id="tech-dictionary-logo-title">Tech Dictionary logo</title>
+  <defs>
+    <mask id="tech-dictionary-code-cutouts" x="0" y="0" width="200" height="168" maskUnits="userSpaceOnUse" style="mask-type: luminance">
+      <path fill="#fff" d="M0 0h200v168H0z"/>
+      <path d="M65 48 33 80l32 32m70-64 32 32-32 32" stroke="#000" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <g fill="#096450" mask="url(#tech-dictionary-code-cutouts)">
+    <path d="M96 158V59c0-14-13-23-27-29L24 11C14 7 8 12 8 23v97c0 6 3 10 9 12l63 22c7 3 12 6 16 10v-6Z"/>
+    <path d="M104 158V59c0-14 13-23 27-29l45-19c10-4 16 1 16 12v97c0 6-3 10-9 12l-63 22c-7 3-12 6-16 10v-6Z"/>
+  </g>
+</svg>

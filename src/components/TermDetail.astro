@@ -1,7 +1,7 @@
 ---
-import type { DictionaryTerm, DictionaryCategory } from '../../data/types';
-import { withBase } from '../lib/urls';
+import type { DictionaryCategory, DictionaryTerm } from '../../data/types';
 import { editURL } from '../lib/site';
+import { withBase } from '../lib/urls';
 interface Props {
   term: DictionaryTerm;
   category: DictionaryCategory;
@@ -48,7 +48,7 @@ const SectionHeading = isPage ? 'h2' : 'h3';
     </p>
   </aside>
   <section class="detail-section" data-section="related" hidden={!related.length}>
-    <SectionHeading>Connect the dots</SectionHeading>
+    <SectionHeading>Related</SectionHeading>
     <div class="related-links d-flex flex-wrap gap-2" data-field="related">
       {related.map((item) => (
         <a href={withBase(`terms/${item.id}/`)} data-term={item.id}>

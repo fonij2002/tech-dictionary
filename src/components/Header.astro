@@ -11,11 +11,15 @@ import Icon from './Icon.astro';
       href={withBase()}
       aria-label="Tech Dictionary home"
     >
-      <span class="brand-mark" aria-hidden="true">
-        t.
-      </span>
+      <img
+        src={withBase('images/favicon.svg')}
+        width="40"
+        height="34"
+        class="d-block flex-shrink-0 object-fit-contain"
+        alt=""
+      />
       <span>
-        tech dictionary<span class="text-primary">.</span>
+        Tech Dictionary
       </span>
     </a>
     <nav class="header-nav d-flex align-items-center" aria-label="Main">
